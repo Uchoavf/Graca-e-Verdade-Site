@@ -79,17 +79,17 @@ export default function Contato() {
         <div className="flex flex-col gap-8">
           <div>
             <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">Email</h2>
-            <a href="mailto:contato@ewerton.dev" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-              contato@ewerton.dev
+            <a href="mailto:ewertonuvf@gmail.com" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+              ewertonuvf@gmail.com
             </a>
           </div>
           <div>
             <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">Redes</h2>
             <div className="flex flex-col gap-2">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+              <a href="https://github.com/Uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
                 GitHub
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+              <a href="https://linkedin.com/in/uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
                 LinkedIn
               </a>
             </div>
