@@ -89,8 +89,8 @@ export default function Contato() {
               <a href="https://github.com/Uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
                 GitHub
               </a>
-              <a href="https://linkedin.com/in/uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-                LinkedIn
+              <a href="https://instagram.com/uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+                Instagram
               </a>
             </div>
           </div>
