@@ -34,6 +34,9 @@ export default function Header() {
           <Link href="/servicos" className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" onClick={() => setMenuOpen(false)}>
             Serviços
           </Link>
+          <Link href="/sobre" className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" onClick={() => setMenuOpen(false)}>
+            Sobre
+          </Link>
           <Link href="/projetos" className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" onClick={() => setMenuOpen(false)}>
             Projetos
           </Link>
