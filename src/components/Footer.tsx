@@ -16,8 +16,8 @@ export default function Footer() {
           <a href="https://linkedin.com/in/uchoavf" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
             LinkedIn
           </a>
-          <a href="mailto:ewertonuvf@gmail.com" className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-            Email
+          <a href="/contato" className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+            Contato
           </a>
         </div>
       </div>

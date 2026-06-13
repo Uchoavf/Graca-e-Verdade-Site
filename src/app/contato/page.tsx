@@ -79,8 +79,8 @@ export default function Contato() {
         <div className="flex flex-col gap-8">
           <div>
             <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">Email</h2>
-            <a href="mailto:ewertonuvf@gmail.com" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-              ewertonuvf@gmail.com
+            <a href="/contato" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+              Preencha o formulário ao lado
             </a>
           </div>
           <div>
