@@ -4,6 +4,7 @@ import { getPostBySlug, getSortedPosts, getRecentPosts } from "@/lib/posts";
 import ArticleCard from "@/components/ArticleCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import CopyLinkButton from "@/components/CopyLinkButton";
+import ReadingProgress from "@/components/ReadingProgress";
 
 const CATEGORY_COLORS: Record<string, string> = {
   teologia: "bg-rose-50 text-rose-700",
@@ -61,6 +62,8 @@ export default async function Post({
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-14 sm:py-24">
+      <ReadingProgress />
+
       <Link
         href="/blog"
         className="mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group animate-fade-in"

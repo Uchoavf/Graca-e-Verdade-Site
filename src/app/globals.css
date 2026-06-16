@@ -80,6 +80,23 @@
   }
 }
 
+html.dark {
+  --background: #141210;
+  --foreground: #f0ede8;
+  --muted: #1f1c19;
+  --muted-foreground: #a89e93;
+  --accent: #dba252;
+  --accent-foreground: #141210;
+  --card: #1c1a17;
+  --card-foreground: #f0ede8;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.10);
+  --ring: rgba(219, 162, 82, 0.35);
+  --shadow-sm: none;
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.20);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.30);
+}
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -247,6 +264,24 @@ html {
   .prose strong {
     color: #f0ede8;
   }
+}
+
+html.dark .prose p {
+  color: #c8bfb2;
+}
+html.dark .prose code {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e0d8cc;
+}
+html.dark .prose pre {
+  background: rgba(0, 0, 0, 0.30);
+  border-color: rgba(255, 255, 255, 0.04);
+}
+html.dark .prose pre code {
+  color: #e0d8cc;
+}
+html.dark .prose strong {
+  color: #f0ede8;
 }
 
 @layer utilities {

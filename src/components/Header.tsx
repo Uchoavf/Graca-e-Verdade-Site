@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -18,20 +19,24 @@ export default function Header() {
           Graça &amp; Verdade
         </Link>
 
-        <button
-          className="block sm:hidden rounded-lg p-2 text-muted-foreground hover:bg-muted transition-colors"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={menuOpen}
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            )}
-          </svg>
-        </button>
+        <div className="flex items-center gap-1 sm:gap-2">
+          <ThemeToggle />
+
+          <button
+            className="block sm:hidden rounded-lg p-2 text-muted-foreground hover:bg-muted transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              )}
+            </svg>
+          </button>
+        </div>
 
         <nav className={`${menuOpen ? 'flex' : 'hidden'} sm:flex absolute sm:static top-full left-0 w-full sm:w-auto flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-1 bg-background/95 sm:bg-transparent p-4 sm:p-0 border-b sm:border-0 border-border backdrop-blur-xl`}>
           {[
