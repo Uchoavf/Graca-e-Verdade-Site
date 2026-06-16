@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,17 +14,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
-  title: "Ewerton | Finanças, Automação & Tecnologia",
+  title: {
+    default: "Graça & Verdade | Blog Bíblico e Teologia Cristã",
+    template: "%s | Graça & Verdade",
+  },
   description:
-    "Economista e desenvolvedor. Consultoria financeira, automação de processos com IA e criação de sites modernos.",
-  keywords: ["finanças", "automação", "sites", "economista", "consultoria", "IA", "tecnologia"],
+    "Artigos profundos sobre temas bíblicos, teologia cristã, vida espiritual e estudos das Escrituras. Um blog para edificação da fé e conhecimento da Palavra.",
+  keywords: [
+    "bíblia",
+    "teologia",
+    "estudos bíblicos",
+    "vida cristã",
+    "devoção",
+    "escrituras",
+    "fé",
+    "graça",
+  ],
   openGraph: {
-    title: "Ewerton | Finanças, Automação & Tecnologia",
+    title: "Graça & Verdade | Blog Bíblico e Teologia Cristã",
     description:
-      "Economista e desenvolvedor. Consultoria financeira, automação de processos com IA e criação de sites modernos.",
+      "Artigos profundos sobre temas bíblicos, teologia cristã, vida espiritual e estudos das Escrituras.",
     type: "website",
     locale: "pt_BR",
+    siteName: "Graça & Verdade",
   },
 };
 
@@ -37,13 +56,12 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${merriweather.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white font-sans text-zinc-900 dark:bg-black dark:text-zinc-50">
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   );

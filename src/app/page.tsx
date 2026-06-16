@@ -1,144 +1,190 @@
 import Link from "next/link";
+import { getFeaturedPosts, getRecentPosts, getCategories } from "@/lib/posts";
+import ArticleCard from "@/components/ArticleCard";
+import NewsletterCTA from "@/components/NewsletterCTA";
 
-export default function Home() {
+export default async function Home() {
+  const featuredPosts = await getFeaturedPosts();
+  const recentPosts = await getRecentPosts(6);
+  const categories = await getCategories();
+
   return (
-    <div className="mx-auto max-w-4xl px-6">
-      <section className="flex min-h-[85vh] flex-col justify-center py-20">
-        <p className="mb-4 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-          Economista & Desenvolvedor
-        </p>
-        <h1 className="mb-6 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-          Finanças, automação e tecnologia em um só lugar
-        </h1>
-        <p className="mb-10 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          Sou economista com domínio de finanças, automação de processos e
-          desenvolvimento web. Uso IA e tecnologia para entregar soluções
-          inteligentes e resultados reais.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <Link
-            href="/servicos"
-            className="rounded-full bg-emerald-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:text-zinc-900 dark:hover:bg-emerald-400"
-          >
-            Ver serviços
-          </Link>
-          <Link
-            href="/contato"
-            className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-50"
-          >
-            Entrar em contato
-          </Link>
+    <div className="w-full">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-muted/50 to-background">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 right-1/4 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
+          <div className="absolute -bottom-32 left-1/4 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl" />
         </div>
-      </section>
-
-      <section className="border-t border-zinc-200 py-20 dark:border-zinc-800">
-        <h2 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl">O que eu faço</h2>
-        <p className="mb-12 max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
-          Três pilares que se complementam para resolver problemas reais.
-        </p>
-
-        <div className="grid gap-8 sm:grid-cols-3">
-          <div className="group rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:border-emerald-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-700">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              Novo artigo publicado
             </div>
-            <h3 className="mb-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">Finanças</h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Análise financeira, projeções, valuation, planilhas inteligentes e
-              consultoria para pessoas e empresas.
+            <h1 className="mb-6 text-4xl font-bold tracking-tight font-serif text-foreground sm:text-5xl lg:text-6xl text-balance">
+              Graça &amp; Verdade para a sua jornada de fé
+            </h1>
+            <p className="mb-10 text-lg leading-relaxed text-muted-foreground text-balance sm:text-xl">
+              Artigos profundos sobre temas bíblicos, teologia cristã e vida
+              espiritual. Um espaço para estudar as Escrituras e crescer na fé.
             </p>
-          </div>
-
-          <div className="group rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:border-purple-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-purple-700">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m-4.993 0h4.992" />
-              </svg>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/blog"
+                className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity shadow-sm"
+              >
+                Explorar artigos
+              </Link>
+              <Link
+                href="/sobre"
+                className="rounded-full border border-border px-8 py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+              >
+                Sobre o projeto
+              </Link>
             </div>
-            <h3 className="mb-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">Automações</h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Automação de processos, bots, dashboards, integração de sistemas
-              e scripts inteligentes com IA.
-            </p>
-          </div>
-
-          <div className="group rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:border-blue-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-700">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-              </svg>
-            </div>
-            <h3 className="mb-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">Sites</h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Criação de sites modernos, rápidos e otimizados para SEO. Do
-              portfólio pessoal ao site institucional.
-            </p>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-zinc-200 py-20 dark:border-zinc-800">
-        <h2 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl">Por que trabalhar comigo?</h2>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="flex gap-4">
-            <span className="mt-1 shrink-0 text-emerald-600 dark:text-emerald-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+      {/* Featured Articles */}
+      {featuredPosts.length > 0 && (
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mb-12 text-center">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
+              Destaques
             </span>
-            <div>
-              <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Visão analítica</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Minha formação em economia me dá base sólida para analisar dados,
-                modelar cenários e tomar decisões orientadas a resultados.
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
+              Artigos em destaque
+            </h2>
           </div>
-          <div className="flex gap-4">
-            <span className="mt-1 shrink-0 text-emerald-600 dark:text-emerald-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </span>
-            <div>
-              <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Tecnologia com IA</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Uso inteligência artificial para acelerar entregas, automatizar
-                processos e criar soluções mais eficientes.
-              </p>
-            </div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            {featuredPosts.map((post) => (
+              <ArticleCard key={post.slug} post={post} variant="featured" />
+            ))}
           </div>
-          <div className="flex gap-4">
-            <span className="mt-1 shrink-0 text-emerald-600 dark:text-emerald-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+        </section>
+      )}
+
+      {/* Categories */}
+      <section className="border-t border-border bg-muted/30">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mb-12 text-center">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
+              Temas
             </span>
-            <div>
-              <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Comunicação clara</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Traduzo problemas complexos em soluções simples. Você entende
-                cada etapa do processo, sem jargões desnecessários.
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
+              Explore por categoria
+            </h2>
           </div>
-          <div className="flex gap-4">
-            <span className="mt-1 shrink-0 text-emerald-600 dark:text-emerald-400">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </span>
-            <div>
-              <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Entrega de ponta a ponta</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Da análise inicial ao deploy. Cuido de todas as etapas para você
-                focar no que realmente importa: seu negócio.
-              </p>
-            </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/categorias/${cat.slug}`}
+                className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-accent/40 hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-card-foreground group-hover:text-accent transition-colors capitalize">
+                    {cat.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {cat.count} {cat.count === 1 ? "artigo" : "artigos"}
+                  </p>
+                </div>
+                <svg
+                  className="h-4 w-4 text-muted-foreground/40 group-hover:text-accent transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </Link>
+            ))}
           </div>
         </div>
+      </section>
+
+      {/* Recent Articles */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-12 text-center">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
+            Artigos recentes
+          </span>
+          <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
+            Últimas publicações
+          </h2>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {recentPosts.map((post) => (
+            <ArticleCard key={post.slug} post={post} />
+          ))}
+        </div>
+        {recentPosts.length >= 6 && (
+          <div className="mt-12 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+            >
+              Ver todos os artigos
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
+          </div>
+        )}
+      </section>
+
+      {/* Versículo */}
+      <section className="border-t border-border bg-muted/30">
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <blockquote className="text-xl italic leading-relaxed text-muted-foreground font-serif sm:text-2xl">
+            &quot;Lâmpada para os meus pés é a tua palavra e luz para o meu
+            caminho.&quot;
+          </blockquote>
+          <cite className="mt-4 block text-sm font-medium text-accent not-italic">
+            Salmos 119:105
+          </cite>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <NewsletterCTA />
       </section>
     </div>
   );

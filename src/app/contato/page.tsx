@@ -8,15 +8,22 @@ export default function Contato() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-20">
-      <h1 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl">Contato</h1>
-      <p className="mb-12 text-lg text-zinc-600 dark:text-zinc-400">
-        Tem um projeto em mente? Vamos conversar.
-      </p>
+      <section className="mb-12 text-center">
+        <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
+          Contato
+        </span>
+        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl">
+          Entre em contato
+        </h1>
+        <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
+          Tem dúvidas, sugestões ou gostaria de contribuir com o projeto? Envie sua mensagem.
+        </p>
+      </section>
 
       <div className="grid gap-12 lg:grid-cols-2">
         <form action={formAction} className="flex flex-col gap-6">
           <div>
-            <label htmlFor="nome" className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="nome" className="mb-1 block text-sm font-medium text-foreground">
               Nome
             </label>
             <input
@@ -24,12 +31,12 @@ export default function Contato() {
               id="nome"
               name="nome"
               required
-              className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:focus:border-emerald-400"
+              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="Seu nome"
             />
           </div>
           <div>
-            <label htmlFor="email" className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="email" className="mb-1 block text-sm font-medium text-foreground">
               Email
             </label>
             <input
@@ -37,12 +44,12 @@ export default function Contato() {
               id="email"
               name="email"
               required
-              className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:focus:border-emerald-400"
+              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="seu@email.com"
             />
           </div>
           <div>
-            <label htmlFor="mensagem" className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="mensagem" className="mb-1 block text-sm font-medium text-foreground">
               Mensagem
             </label>
             <textarea
@@ -50,7 +57,7 @@ export default function Contato() {
               name="mensagem"
               required
               rows={5}
-              className="w-full resize-none rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:focus:border-emerald-400"
+              className="w-full resize-none rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="Sua mensagem..."
             />
           </div>
@@ -70,7 +77,7 @@ export default function Contato() {
           <button
             type="submit"
             disabled={pending}
-            className="self-start rounded-full bg-emerald-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-emerald-500 dark:text-zinc-900 dark:hover:bg-emerald-400"
+            className="self-start rounded-full bg-accent px-8 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
           >
             {pending ? 'Enviando...' : 'Enviar mensagem'}
           </button>
@@ -78,21 +85,39 @@ export default function Contato() {
 
         <div className="flex flex-col gap-8">
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">Email</h2>
-            <a href="/contato" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-              Preencha o formulário ao lado
-            </a>
+            <h2 className="mb-2 text-lg font-semibold text-foreground font-serif">Email</h2>
+            <p className="text-muted-foreground text-sm">
+              Preencha o formulário ao lado para entrar em contato.
+            </p>
           </div>
           <div>
-            <h2 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">Redes</h2>
+            <h2 className="mb-2 text-lg font-semibold text-foreground font-serif">Redes Sociais</h2>
             <div className="flex flex-col gap-2">
-              <a href="https://github.com/Uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
-                GitHub
-              </a>
-              <a href="https://instagram.com/uchoavf" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Instagram
               </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                YouTube
+              </a>
             </div>
+          </div>
+          <div className="rounded-2xl border border-border bg-muted/30 p-6">
+            <blockquote className="text-sm italic text-muted-foreground leading-relaxed">
+              &quot;Ora, àquele que é poderoso para fazer infinitamente mais do que tudo quanto pedimos ou pensamos, conforme o seu poder que opera em nós, a ele seja a glória.&quot;
+              <span className="mt-2 block text-xs not-italic text-muted-foreground">
+                Efésios 3:20-21
+              </span>
+            </blockquote>
           </div>
         </div>
       </div>
