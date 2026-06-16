@@ -6,6 +6,7 @@ tags: ["espírito santo", "frutos", "caráter", "gálatas"]
 category: "vida-crista"
 author: "Graça & Verdade"
 featured: true
+image: "https://images.unsplash.com/photo-1471193945509-9ad0618afebc?w=1200&h=630&fit=crop&q=80"
 ---
 
 ## Introdução

@@ -60,21 +60,30 @@ export default function ArticleCard({
         href={`/blog/${post.slug}`}
         className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-border-hover hover:shadow-lg animate-slide-up"
       >
-        <div className="aspect-[16/9] bg-gradient-to-br from-accent/8 via-muted to-muted flex items-center justify-center border-b border-border/50">
-          <svg
-            className="h-14 w-14 text-accent/25"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1}
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+        <div className="aspect-[16/9] bg-gradient-to-br from-accent/8 via-muted to-muted flex items-center justify-center border-b border-border/50 relative overflow-hidden">
+          {post.image ? (
+            <img
+              src={post.image}
+              alt={post.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
-          </svg>
+          ) : (
+            <svg
+              className="h-14 w-14 text-accent/25"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+              />
+            </svg>
+          )}
         </div>
         <div className="flex flex-1 flex-col p-6">
           <span className={`mb-3 inline-block self-start rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>

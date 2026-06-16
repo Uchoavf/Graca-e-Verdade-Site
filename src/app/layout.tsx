@@ -39,6 +39,11 @@ export const metadata: Metadata = {
     "fé",
     "graça",
   ],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Graça & Verdade | Blog Bíblico e Teologia Cristã",
     description:

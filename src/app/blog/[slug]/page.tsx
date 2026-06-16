@@ -64,6 +64,16 @@ export default async function Post({
     <article className="mx-auto max-w-4xl px-6 py-14 sm:py-24">
       <ReadingProgress />
 
+      {post.image && (
+        <div className="mb-10 overflow-hidden rounded-2xl border border-border shadow-md animate-fade-in">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full aspect-[2/1] object-cover"
+          />
+        </div>
+      )}
+
       <Link
         href="/blog"
         className="mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group animate-fade-in"
