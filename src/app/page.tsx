@@ -10,38 +10,37 @@ export default async function Home() {
 
   return (
     <div className="w-full">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-muted/50 to-background">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 right-1/4 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-          <div className="absolute -bottom-32 left-1/4 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl" />
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-muted/80 via-background to-background">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 right-1/4 h-[32rem] w-[32rem] rounded-full bg-accent/[0.04] blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 h-[24rem] w-[24rem] rounded-full bg-amber-500/[0.03] blur-3xl" />
         </div>
-        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
+        <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-3xl text-center animate-slide-up">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               Novo artigo publicado
             </div>
-            <h1 className="mb-6 text-4xl font-bold tracking-tight font-serif text-foreground sm:text-5xl lg:text-6xl text-balance">
-              Graça &amp; Verdade para a sua jornada de fé
+            <h1 className="mb-6 text-5xl font-bold tracking-tight font-serif text-foreground sm:text-6xl lg:text-7xl text-balance leading-[1.05]">
+              Graça &amp; Verdade
             </h1>
-            <p className="mb-10 text-lg leading-relaxed text-muted-foreground text-balance sm:text-xl">
-              Artigos profundos sobre temas bíblicos, teologia cristã e vida
-              espiritual. Um espaço para estudar as Escrituras e crescer na fé.
+            <p className="mb-10 text-lg leading-relaxed text-muted-foreground text-balance sm:text-xl max-w-2xl mx-auto">
+              Artigos profundos sobre a Bíblia, teologia e vida cristã. Um espaço para estudar as Escrituras, crescer na fé e conhecer a verdade que liberta.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/blog"
-                className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity shadow-sm"
+                className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm"
               >
                 Explorar artigos
               </Link>
               <Link
                 href="/sobre"
-                className="rounded-full border border-border px-8 py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+                className="rounded-full border border-border bg-card px-8 py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors shadow-sm"
               >
                 Sobre o projeto
               </Link>
@@ -50,18 +49,18 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Articles */}
+      {/* Featured */}
       {featuredPosts.length > 0 && (
-        <section className="mx-auto max-w-6xl px-6 py-20">
-          <div className="mb-12 text-center">
+        <section className="mx-auto max-w-6xl px-6 py-24">
+          <div className="mb-14">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
               Destaques
             </span>
-            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
               Artigos em destaque
             </h2>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {featuredPosts.map((post) => (
               <ArticleCard key={post.slug} post={post} variant="featured" />
             ))}
@@ -70,30 +69,31 @@ export default async function Home() {
       )}
 
       {/* Categories */}
-      <section className="border-t border-border bg-muted/30">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="mb-12 text-center">
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="mb-14">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
               Temas
             </span>
-            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
               Explore por categoria
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/categorias/${cat.slug}`}
-                className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-border-hover hover:shadow-md animate-scale-in"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/8 text-accent">
                   <svg
                     className="h-5 w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={1.5}
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -102,8 +102,8 @@ export default async function Home() {
                     />
                   </svg>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-card-foreground group-hover:text-accent transition-colors capitalize">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-card-foreground group-hover:text-accent transition-colors capitalize text-sm">
                     {cat.name}
                   </h3>
                   <p className="text-xs text-muted-foreground mt-0.5">
@@ -111,17 +111,14 @@ export default async function Home() {
                   </p>
                 </div>
                 <svg
-                  className="h-4 w-4 text-muted-foreground/40 group-hover:text-accent transition-colors"
+                  className="h-4 w-4 text-muted-foreground/20 group-hover:text-accent/50 transition-colors shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
+                  aria-hidden="true"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
               </Link>
             ))}
@@ -129,14 +126,14 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Recent Articles */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-12 text-center">
+      {/* Recent */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mb-14">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
-            Artigos recentes
+            Recentes
           </span>
-          <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl">
-            Últimas publicações
+          <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
+            Últimos artigos
           </h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -148,21 +145,11 @@ export default async function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground hover:bg-muted transition-all shadow-sm"
             >
               Ver todos os artigos
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
           </div>
@@ -170,20 +157,19 @@ export default async function Home() {
       </section>
 
       {/* Versículo */}
-      <section className="border-t border-border bg-muted/30">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <blockquote className="text-xl italic leading-relaxed text-muted-foreground font-serif sm:text-2xl">
-            &quot;Lâmpada para os meus pés é a tua palavra e luz para o meu
-            caminho.&quot;
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <blockquote className="text-2xl italic leading-relaxed text-muted-foreground font-serif sm:text-3xl">
+            &quot;Lâmpada para os meus pés é a tua palavra e luz para o meu caminho.&quot;
           </blockquote>
-          <cite className="mt-4 block text-sm font-medium text-accent not-italic">
+          <cite className="mt-4 block text-sm font-medium text-accent not-italic tracking-wide">
             Salmos 119:105
           </cite>
         </div>
       </section>
 
       {/* Newsletter */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section className="mx-auto max-w-6xl px-6 pb-24">
         <NewsletterCTA />
       </section>
     </div>

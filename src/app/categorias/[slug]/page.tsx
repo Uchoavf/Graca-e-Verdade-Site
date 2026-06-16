@@ -21,18 +21,12 @@ export default async function CategoryPage({
   if (!categories.length) notFound();
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20">
+    <div className="mx-auto max-w-6xl px-6 py-24">
       <Link
         href="/categorias"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+        className="mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
       >
-        <svg
-          className="h-4 w-4 transition-transform group-hover:-translate-x-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
+        <svg className="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
         Todas as categorias
@@ -42,7 +36,7 @@ export default async function CategoryPage({
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Categoria
         </span>
-        <h1 className="text-4xl font-bold font-serif text-foreground sm:text-5xl capitalize">
+        <h1 className="text-4xl font-bold font-serif text-foreground sm:text-5xl tracking-tight capitalize">
           {category?.name ?? slug.replace("-", " ")}
         </h1>
         <p className="mt-4 text-muted-foreground">
@@ -57,17 +51,10 @@ export default async function CategoryPage({
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-border bg-muted/30 p-12 text-center">
-          <h3 className="text-lg font-semibold text-foreground">
-            Nenhum artigo ainda
-          </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Ainda não há artigos publicados nesta categoria.
-          </p>
-          <Link
-            href="/blog"
-            className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
-          >
+        <div className="rounded-2xl border border-dashed border-border bg-muted/30 p-16 text-center animate-fade-in">
+          <h3 className="text-lg font-semibold text-foreground">Nenhum artigo ainda</h3>
+          <p className="mt-1 text-sm text-muted-foreground">Ainda não há artigos publicados nesta categoria.</p>
+          <Link href="/blog" className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
             Ver todos os artigos
           </Link>
         </div>

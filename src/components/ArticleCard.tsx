@@ -7,13 +7,13 @@ interface ArticleCardProps {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  teologia: "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
-  "vida-crista": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
-  devocional: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-  apologetica: "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300",
-  "estudo-biblico": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300",
-  escatologia: "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
-  geral: "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
+  teologia: "bg-rose-50 text-rose-700",
+  "vida-crista": "bg-emerald-50 text-emerald-700",
+  devocional: "bg-amber-50 text-amber-700",
+  apologetica: "bg-sky-50 text-sky-700",
+  "estudo-biblico": "bg-violet-50 text-violet-700",
+  escatologia: "bg-orange-50 text-orange-700",
+  geral: "bg-neutral-100 text-neutral-600",
 };
 
 function getCategoryColor(category: string): string {
@@ -28,13 +28,11 @@ export default function ArticleCard({
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group flex items-start gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-accent/40 hover:shadow-md"
+        className="group flex items-start gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-border-hover hover:shadow-md animate-scale-in"
       >
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <span
-              className={`inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}
-            >
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className={`inline-block rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>
               {post.category.replace("-", " ")}
             </span>
           </div>
@@ -60,15 +58,16 @@ export default function ArticleCard({
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-accent/40 hover:shadow-xl"
+        className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-border-hover hover:shadow-lg animate-slide-up"
       >
-        <div className="aspect-[16/9] bg-gradient-to-br from-accent/20 via-muted to-muted flex items-center justify-center">
+        <div className="aspect-[16/9] bg-gradient-to-br from-accent/8 via-muted to-muted flex items-center justify-center border-b border-border/50">
           <svg
-            className="h-16 w-16 text-accent/40"
+            className="h-14 w-14 text-accent/25"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={1}
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -78,18 +77,16 @@ export default function ArticleCard({
           </svg>
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <span
-            className={`mb-3 inline-block self-start rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}
-          >
+          <span className={`mb-3 inline-block self-start rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>
             {post.category.replace("-", " ")}
           </span>
-          <h2 className="mb-3 text-xl font-bold text-card-foreground font-serif group-hover:text-accent transition-colors">
+          <h2 className="mb-2.5 text-xl font-bold text-card-foreground font-serif group-hover:text-accent transition-colors">
             {post.title}
           </h2>
           <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
             {post.description}
           </p>
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
             <time dateTime={post.date}>
               {new Date(post.date + "T00:00:00").toLocaleDateString("pt-BR", {
                 day: "numeric",
@@ -112,20 +109,18 @@ export default function ArticleCard({
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/40 hover:shadow-lg"
+      className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-border-hover hover:shadow-md animate-slide-up"
     >
-      <span
-        className={`mb-3 inline-block self-start rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}
-      >
+      <span className={`mb-3 inline-block self-start rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>
         {post.category.replace("-", " ")}
       </span>
-      <h2 className="mb-3 text-lg font-bold text-card-foreground font-serif group-hover:text-accent transition-colors">
+      <h2 className="mb-2.5 text-lg font-bold text-card-foreground font-serif group-hover:text-accent transition-colors">
         {post.title}
       </h2>
       <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
         {post.description}
       </p>
-      <div className="flex items-center gap-3 text-xs text-muted-foreground">
+      <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
         <time dateTime={post.date}>
           {new Date(post.date + "T00:00:00").toLocaleDateString("pt-BR", {
             day: "numeric",
