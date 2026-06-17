@@ -5,6 +5,7 @@ import ArticleCard from "@/components/ArticleCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import ShareButtons from "@/components/ShareButtons";
 import ReadingProgress from "@/components/ReadingProgress";
+import GiscusComments from "@/components/GiscusComments";
 
 const CATEGORY_COLORS: Record<string, string> = {
   teologia: "bg-rose-50 text-rose-700",
@@ -237,6 +238,8 @@ export default async function Post({
           </div>
         </section>
       )}
+
+      <GiscusComments />
 
       <NewsletterCTA />
     </article>

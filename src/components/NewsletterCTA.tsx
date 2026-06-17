@@ -1,6 +1,40 @@
 'use client'
 
+import { useState } from 'react';
+
 export default function NewsletterCTA() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus('error');
+        setMessage(data.error || 'Erro ao se inscrever.');
+        return;
+      }
+
+      setStatus('success');
+      setMessage(data.message);
+      setEmail('');
+    } catch {
+      setStatus('error');
+      setMessage('Erro de conexão. Tente novamente.');
+    }
+  };
+
   return (
     <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/6 via-accent/10 to-accent/5 border border-border p-10 sm:p-14 text-center">
       <div className="absolute inset-0 opacity-40">
@@ -28,27 +62,42 @@ export default function NewsletterCTA() {
         <p className="mb-6 max-w-md mx-auto text-sm leading-relaxed text-muted-foreground">
           Inscreva-se para receber estudos bíblicos, devocionais e reflexões diretamente na sua caixa de entrada.
         </p>
-        <form
-          className="mx-auto flex max-w-md flex-col gap-2.5 sm:flex-row"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor="newsletter-email" className="sr-only">
-            Seu melhor e-mail
-          </label>
-          <input
-            id="newsletter-email"
-            type="email"
-            placeholder="Seu melhor e-mail"
-            required
-            className="flex-1 rounded-full border border-border bg-card px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent/40 focus:outline-none focus:ring-3 focus:ring-accent/10 transition-all"
-          />
-          <button
-            type="submit"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm"
+
+        {status === 'success' ? (
+          <div className="mx-auto max-w-md rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-700">
+            {message}
+          </div>
+        ) : (
+          <form
+            className="mx-auto flex max-w-md flex-col gap-2.5 sm:flex-row"
+            onSubmit={handleSubmit}
           >
-            Inscrever-se
-          </button>
-        </form>
+            <label htmlFor="newsletter-email" className="sr-only">
+              Seu melhor e-mail
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              placeholder="Seu melhor e-mail"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === 'loading'}
+              className="flex-1 rounded-full border border-border bg-card px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent/40 focus:outline-none focus:ring-3 focus:ring-accent/10 transition-all"
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm disabled:opacity-60"
+            >
+              {status === 'loading' ? 'Enviando...' : 'Inscrever-se'}
+            </button>
+          </form>
+        )}
+
+        {status === 'error' && (
+          <p className="mt-3 text-sm text-red-600">{message}</p>
+        )}
       </div>
     </section>
   );
