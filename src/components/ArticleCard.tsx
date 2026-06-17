@@ -39,7 +39,7 @@ export default function ArticleCard({
           <h3 className="text-sm font-semibold text-card-foreground group-hover:text-accent transition-colors line-clamp-2">
             {post.title}
           </h3>
-          <div className="mt-2 flex items-center gap-3 text-[11px] text-muted-foreground">
+          <div className="mt-2 flex items-center gap-2.5 text-[11px] text-muted-foreground">
             <time dateTime={post.date}>
               {new Date(post.date + "T00:00:00").toLocaleDateString("pt-BR", {
                 day: "numeric",
@@ -47,7 +47,14 @@ export default function ArticleCard({
                 year: "numeric",
               })}
             </time>
-            {post.readingTime && <span>{post.readingTime}</span>}
+            {post.readingTime && (
+              <span className="inline-flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-medium">
+                <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {post.readingTime}
+              </span>
+            )}
           </div>
         </div>
       </Link>
@@ -95,7 +102,7 @@ export default function ArticleCard({
           <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
             {post.description}
           </p>
-          <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
+          <div className="flex items-center gap-2.5 text-xs text-muted-foreground/70">
             <time dateTime={post.date}>
               {new Date(post.date + "T00:00:00").toLocaleDateString("pt-BR", {
                 day: "numeric",
@@ -104,10 +111,12 @@ export default function ArticleCard({
               })}
             </time>
             {post.readingTime && (
-              <>
-                <span aria-hidden="true">&middot;</span>
-                <span>{post.readingTime}</span>
-              </>
+              <span className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium">
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {post.readingTime}
+              </span>
             )}
           </div>
         </div>
@@ -129,7 +138,7 @@ export default function ArticleCard({
       <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
         {post.description}
       </p>
-      <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
+      <div className="flex items-center gap-2.5 text-xs text-muted-foreground/70">
         <time dateTime={post.date}>
           {new Date(post.date + "T00:00:00").toLocaleDateString("pt-BR", {
             day: "numeric",
@@ -138,10 +147,12 @@ export default function ArticleCard({
           })}
         </time>
         {post.readingTime && (
-          <>
-            <span aria-hidden="true">&middot;</span>
-            <span>{post.readingTime}</span>
-          </>
+          <span className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium">
+            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {post.readingTime}
+          </span>
         )}
       </div>
     </Link>

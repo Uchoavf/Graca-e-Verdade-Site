@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getPostBySlug, getSortedPosts, getRecentPosts } from "@/lib/posts";
 import ArticleCard from "@/components/ArticleCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
-import CopyLinkButton from "@/components/CopyLinkButton";
+import ShareButtons from "@/components/ShareButtons";
 import ReadingProgress from "@/components/ReadingProgress";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -154,11 +154,8 @@ export default async function Post({
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
-      <div className="mb-20 flex items-center gap-4 rounded-xl border border-border bg-muted/30 p-5">
-        <span className="text-sm font-medium text-muted-foreground">
-          Compartilhe:
-        </span>
-        <CopyLinkButton />
+      <div className="mb-20 rounded-xl border border-border bg-muted/30 p-5">
+        <ShareButtons title={post.title} slug={post.slug} />
       </div>
 
       {relatedPosts.length > 0 && (
