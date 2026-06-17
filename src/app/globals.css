@@ -2,10 +2,10 @@
 
 :root {
   --neutral-0: #ffffff;
-  --neutral-50: #fcfcfc;
-  --neutral-100: #f7f4f1;
-  --neutral-150: #f2eeea;
-  --neutral-200: #ebe6e1;
+  --neutral-50: #faf8f2;
+  --neutral-100: #f6f2e8;
+  --neutral-150: #f1ece0;
+  --neutral-200: #eae4d6;
   --neutral-300: #d9d2cb;
   --neutral-400: #b3a99f;
   --neutral-500: #8a7e73;
@@ -27,9 +27,9 @@
   --brand-900: #623f1d;
   --brand-1000: #3a230f;
 
-  --background: #fcfcfc;
+  --background: #f9f6ee;
   --foreground: #3b2a1f;
-  --muted: #f7f4f1;
+  --muted: #f3efe5;
   --muted-foreground: #6a5b4d;
   --accent: #ca8a2e;
   --accent-foreground: #ffffff;
