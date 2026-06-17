@@ -23,6 +23,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gracaeverdade.com.br"),
   title: {
     default: "Graça & Verdade | Blog Bíblico e Teologia Cristã",
     template: "%s | Graça & Verdade",
@@ -51,6 +52,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Graça & Verdade",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Graça & Verdade - Blog Bíblico",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Graça & Verdade | Blog Bíblico",
+    description:
+      "Artigos profundos sobre temas bíblicos, teologia cristã e vida espiritual.",
+    images: ["/og-image.svg"],
   },
 };
 

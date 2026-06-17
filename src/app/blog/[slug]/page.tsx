@@ -33,9 +33,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return { title: "Artigo não encontrado" };
+
+  const ogImage = post.image
+    ? { url: post.image, width: 1200, height: 630, alt: post.title }
+    : undefined;
+
   return {
     title: post.title,
     description: post.description,
+    authors: [{ name: post.author }],
     openGraph: {
       title: post.title,
       description: post.description,
@@ -43,6 +49,13 @@ export async function generateMetadata({
       locale: "pt_BR",
       publishedTime: post.date,
       tags: post.tags,
+      images: ogImage ? [ogImage] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: ogImage ? [ogImage.url] : [],
     },
   };
 }
@@ -73,6 +86,60 @@ export default async function Post({
           />
         </div>
       )}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.description,
+            image: post.image ?? undefined,
+            datePublished: post.date,
+            author: {
+              "@type": "Person",
+              name: post.author,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Graça & Verdade",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://gracaeverdade.com.br/favicon.svg",
+              },
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Início",
+                item: "https://gracaeverdade.com.br",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://gracaeverdade.com.br/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+              },
+            ],
+          }),
+        }}
+      />
 
       <Link
         href="/blog"
