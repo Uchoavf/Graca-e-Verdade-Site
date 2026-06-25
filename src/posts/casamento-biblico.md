@@ -11,7 +11,8 @@ tags:
   - "relacionamento conjugal"
 category: "teologia"
 author: "Graça & Verdade"
-featured: false
+featured: true
+image: "https://picsum.photos/seed/casamento/1200/630"
 ---
 
 **Resumo**

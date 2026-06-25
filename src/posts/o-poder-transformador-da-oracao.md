@@ -6,7 +6,7 @@ tags: ["oração", "vida espiritual", "comunhão"]
 category: "devocional"
 author: "Graça & Verdade"
 featured: true
-image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=630&fit=crop&q=80"
+image: "https://picsum.photos/seed/oracao/1200/630"
 ---
 
 ## A Essência da Oração

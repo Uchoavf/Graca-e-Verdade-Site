@@ -10,7 +10,8 @@ tags:
   - "ética cristã"
 category: "teologia"
 author: "Graça & Verdade"
-featured: false
+featured: true
+image: "https://picsum.photos/seed/pergaminhos/1200/630"
 ---
 
 A Bíblia não é um manual de economia, mas seria impossível negar que as Escrituras contêm, do Gênesis ao Apocalipse, uma visão econômica profundamente articulada. Dois artigos anteriores exploraram, separadamente, os princípios econômicos do Antigo Testamento e do Novo Testamento, revelando em cada um deles um conjunto coerente de valores, leis e práticas que regulam a relação do povo de Deus com os bens materiais. O Antigo Testamento estabelece um sistema econômico sofisticado, ancorado na aliança e na propriedade divina da terra, com instituições como o ano sabático, o jubileu, a remissão de dívidas e a proteção legal dos vulneráveis. O Novo Testamento, por sua vez, não revoga esses princípios, mas os reinterpreta e os radicaliza à luz da pessoa e da obra de Jesus Cristo, deslocando o foco da legislação nacional para a transformação do coração e para a vida da comunidade escatológica — a igreja.

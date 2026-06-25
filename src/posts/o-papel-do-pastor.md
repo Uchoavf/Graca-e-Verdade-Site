@@ -10,7 +10,8 @@ tags:
   - "eclesiologia"
 category: "teologia"
 author: "Graça & Verdade"
-featured: false
+featured: true
+image: "https://picsum.photos/seed/pastor-ovelhas/1200/630"
 ---
 
 **Resumo**

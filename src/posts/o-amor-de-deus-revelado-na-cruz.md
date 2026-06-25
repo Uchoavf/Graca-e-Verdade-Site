@@ -6,7 +6,7 @@ tags: ["amor", "cruz", "salvação", "jesus"]
 category: "devocional"
 author: "Graça & Verdade"
 featured: false
-image: "https://images.unsplash.com/photo-1490127252417-7c392f993ee6?w=1200&h=630&fit=crop&q=80"
+image: "https://picsum.photos/seed/cruz-amor/1200/630"
 ---
 
 ## A Maior Demonstração de Amor
