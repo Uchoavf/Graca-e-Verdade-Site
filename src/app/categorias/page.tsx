@@ -5,12 +5,12 @@ export default async function CategoriesPage() {
   const categories = await getCategories();
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
-      <section className="mb-16">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+      <section className="mb-12 sm:mb-16">
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Categorias
         </span>
-        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl tracking-tight">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
           Explore por tema
         </h1>
         <p className="max-w-2xl text-muted-foreground leading-relaxed">
@@ -19,12 +19,12 @@ export default async function CategoriesPage() {
       </section>
 
       {categories.length > 0 ? (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/categorias/${cat.slug}`}
-              className="group flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-border-hover hover:shadow-lg animate-scale-in"
+              className="group flex flex-col items-center rounded-2xl border border-border bg-card p-6 sm:p-8 text-center transition-all hover:border-border-hover hover:shadow-lg animate-scale-in"
             >
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-accent/8 text-accent">
                 <svg

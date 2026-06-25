@@ -2,20 +2,7 @@ import Link from "next/link";
 import { getSortedPosts, getCategories, getAllTags } from "@/lib/posts";
 import ArticleCard from "@/components/ArticleCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
-
-const CATEGORY_COLORS: Record<string, string> = {
-  teologia: "bg-rose-50 text-rose-700",
-  "vida-crista": "bg-emerald-50 text-emerald-700",
-  devocional: "bg-amber-50 text-amber-700",
-  apologetica: "bg-sky-50 text-sky-700",
-  "estudo-biblico": "bg-violet-50 text-violet-700",
-  escatologia: "bg-orange-50 text-orange-700",
-  geral: "bg-neutral-100 text-neutral-600",
-};
-
-function getColor(c: string) {
-  return CATEGORY_COLORS[c] || CATEGORY_COLORS["geral"];
-}
+import { getCategoryColor } from "@/lib/constants";
 
 export default async function Blog() {
   const posts = await getSortedPosts();
@@ -23,12 +10,12 @@ export default async function Blog() {
   const tags = await getAllTags();
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
-      <section className="mb-16">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+      <section className="mb-12 sm:mb-16">
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Artigos
         </span>
-        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl tracking-tight">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
           Todos os artigos
         </h1>
         <p className="max-w-2xl text-muted-foreground leading-relaxed">
@@ -36,7 +23,7 @@ export default async function Blog() {
         </p>
       </section>
 
-      <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
+      <div className="grid gap-8 md:gap-10 md:grid-cols-[1fr_240px]">
         <div>
           {posts.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2">
@@ -88,7 +75,7 @@ export default async function Blog() {
                   <Link
                     key={tag.name}
                     href={`/blog?tag=${tag.name}`}
-                    className={`inline-block rounded-md px-2.5 py-1 text-[11px] font-medium ${getColor(tag.name)}`}
+                    className={`inline-block rounded-md px-2.5 py-1 text-[11px] font-medium ${getCategoryColor(tag.name)}`}
                   >
                     {tag.name}
                   </Link>

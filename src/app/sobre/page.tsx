@@ -1,17 +1,17 @@
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-24">
-      <section className="mb-16">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-24">
+      <section className="mb-12 sm:mb-16">
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Sobre
         </span>
-        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl tracking-tight">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
           Sobre o Graça &amp; Verdade
         </h1>
       </section>
 
       <div className="space-y-6">
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
+        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
           <h2 className="mt-0 mb-4 text-2xl font-serif font-bold text-foreground">Nossa Missão</h2>
           <p className="text-muted-foreground leading-relaxed">
             O <strong className="text-foreground">Graça &amp; Verdade</strong> nasceu do desejo de compartilhar
@@ -25,7 +25,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
+        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
           <h2 className="mt-0 mb-4 text-2xl font-serif font-bold text-foreground">O Que Você Encontra Aqui</h2>
           <ul className="space-y-3 text-muted-foreground">
             <li className="flex items-start gap-3">
@@ -55,9 +55,9 @@ export default function AboutPage() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
+        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
           <h2 className="mt-0 mb-6 text-2xl font-serif font-bold text-foreground text-center">Nossos Valores</h2>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-3">
             <div className="text-center">
               <div className="mb-4 mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent/8 text-accent">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

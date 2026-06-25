@@ -41,9 +41,9 @@ const PRODUCTS = [
 
 export default function StorePage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-24">
-      <section className="mb-16">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+      <section className="mb-12 sm:mb-16">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 sm:px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
           <svg className="h-3.5 w-3.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
           </svg>
@@ -52,7 +52,7 @@ export default function StorePage() {
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Loja
         </span>
-        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl tracking-tight">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
           Recursos para sua jornada
         </h1>
         <p className="max-w-2xl text-muted-foreground leading-relaxed">
@@ -60,12 +60,12 @@ export default function StorePage() {
         </p>
       </section>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-24">
+      <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 md:grid-cols-3 mb-16 sm:mb-24">
         {PRODUCTS.map((product) => (
           <Link
             key={product.name}
             href={product.link}
-            className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-border-hover hover:shadow-lg animate-scale-in"
+            className="group flex flex-col rounded-2xl border border-border bg-card p-4 sm:p-6 transition-all hover:border-border-hover hover:shadow-lg animate-scale-in"
           >
             <div className="mb-5 flex h-40 items-center justify-center rounded-xl bg-muted">
               <svg
@@ -101,7 +101,7 @@ export default function StorePage() {
         ))}
       </div>
 
-      <div className="rounded-2xl border border-border bg-gradient-to-br from-accent/4 to-accent/8 p-10 sm:p-14 text-center">
+      <div className="rounded-2xl border border-border bg-gradient-to-br from-accent/4 to-accent/8 p-6 sm:p-10 md:p-14 text-center">
         <h2 className="mb-4 text-2xl font-bold font-serif text-foreground tracking-tight">
           Programa de afiliados
         </h2>

@@ -16,31 +16,31 @@ export default async function Home() {
           <div className="absolute top-1/4 right-1/4 h-[32rem] w-[32rem] rounded-full bg-accent/[0.04] blur-3xl" />
           <div className="absolute bottom-0 left-1/4 h-[24rem] w-[24rem] rounded-full bg-amber-500/[0.03] blur-3xl" />
         </div>
-        <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 md:py-36">
           <div className="mx-auto max-w-3xl text-center animate-slide-up">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 sm:px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               Novo artigo publicado
             </div>
-            <h1 className="mb-6 text-5xl font-bold tracking-tight font-serif text-foreground sm:text-6xl lg:text-7xl text-balance leading-[1.05]">
+            <h1 className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight font-serif text-foreground text-balance leading-[1.05]">
               Graça &amp; Verdade
             </h1>
-            <p className="mb-10 text-lg leading-relaxed text-muted-foreground text-balance sm:text-xl max-w-2xl mx-auto">
+            <p className="mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed text-muted-foreground text-balance max-w-2xl mx-auto">
               Artigos profundos sobre a Bíblia, teologia e vida cristã. Um espaço para estudar as Escrituras, crescer na fé e conhecer a verdade que liberta.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/blog"
-                className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm"
+                className="rounded-full bg-accent px-6 sm:px-8 py-3 sm:py-3.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm"
               >
                 Explorar artigos
               </Link>
               <Link
                 href="/sobre"
-                className="rounded-full border border-border bg-card px-8 py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors shadow-sm"
+                className="rounded-full border border-border bg-card px-6 sm:px-8 py-3 sm:py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors shadow-sm"
               >
                 Sobre o projeto
               </Link>
@@ -51,16 +51,16 @@ export default async function Home() {
 
       {/* Featured */}
       {featuredPosts.length > 0 && (
-        <section className="mx-auto max-w-6xl px-6 py-24">
-          <div className="mb-14">
+        <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+          <div className="mb-10 sm:mb-14">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
               Destaques
             </span>
-            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-foreground tracking-tight">
               Artigos em destaque
             </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
             {featuredPosts.map((post) => (
               <ArticleCard key={post.slug} post={post} variant="featured" />
             ))}
@@ -70,16 +70,16 @@ export default async function Home() {
 
       {/* Categories */}
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <div className="mb-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+          <div className="mb-10 sm:mb-14">
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
               Temas
             </span>
-            <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-foreground tracking-tight">
               Explore por categoria
             </h2>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
@@ -127,16 +127,16 @@ export default async function Home() {
       </section>
 
       {/* Recent */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-14">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+        <div className="mb-10 sm:mb-14">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
             Recentes
           </span>
-          <h2 className="text-3xl font-bold font-serif text-foreground sm:text-4xl tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-foreground tracking-tight">
             Últimos artigos
           </h2>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3">
           {recentPosts.map((post) => (
             <ArticleCard key={post.slug} post={post} />
           ))}
@@ -158,8 +158,8 @@ export default async function Home() {
 
       {/* Versículo */}
       <section className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <blockquote className="text-2xl italic leading-relaxed text-muted-foreground font-serif sm:text-3xl">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-24 text-center">
+          <blockquote className="text-xl sm:text-2xl md:text-3xl italic leading-relaxed text-muted-foreground font-serif">
             &quot;Lâmpada para os meus pés é a tua palavra e luz para o meu caminho.&quot;
           </blockquote>
           <cite className="mt-4 block text-sm font-medium text-accent not-italic tracking-wide">
@@ -169,7 +169,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter */}
-      <section className="mx-auto max-w-6xl px-6 pb-24">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-24">
         <NewsletterCTA />
       </section>
     </div>

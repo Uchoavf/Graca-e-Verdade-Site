@@ -1,23 +1,10 @@
 import Link from "next/link";
 import type { PostData } from "@/lib/posts";
+import { getCategoryColor } from "@/lib/constants";
 
 interface ArticleCardProps {
   post: PostData;
   variant?: "default" | "featured" | "compact";
-}
-
-const CATEGORY_COLORS: Record<string, string> = {
-  teologia: "bg-rose-50 text-rose-700",
-  "vida-crista": "bg-emerald-50 text-emerald-700",
-  devocional: "bg-amber-50 text-amber-700",
-  apologetica: "bg-sky-50 text-sky-700",
-  "estudo-biblico": "bg-violet-50 text-violet-700",
-  escatologia: "bg-orange-50 text-orange-700",
-  geral: "bg-neutral-100 text-neutral-600",
-};
-
-function getCategoryColor(category: string): string {
-  return CATEGORY_COLORS[category] ?? CATEGORY_COLORS["geral"];
 }
 
 export default function ArticleCard({
@@ -67,7 +54,7 @@ export default function ArticleCard({
         href={`/blog/${post.slug}`}
         className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-border-hover hover:shadow-lg animate-slide-up"
       >
-        <div className="aspect-[16/9] bg-gradient-to-br from-accent/8 via-muted to-muted flex items-center justify-center border-b border-border/50 relative overflow-hidden">
+        <div className="aspect-[2/1] sm:aspect-[16/9] bg-gradient-to-br from-accent/8 via-muted to-muted flex items-center justify-center border-b border-border/50 relative overflow-hidden">
           {post.image ? (
             <img
               src={post.image}
@@ -92,7 +79,7 @@ export default function ArticleCard({
             </svg>
           )}
         </div>
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col p-4 sm:p-6">
           <span className={`mb-3 inline-block self-start rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>
             {post.category.replace("-", " ")}
           </span>
@@ -127,7 +114,7 @@ export default function ArticleCard({
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-border-hover hover:shadow-md animate-slide-up"
+      className="group flex flex-col rounded-xl border border-border bg-card p-4 sm:p-6 transition-all hover:border-border-hover hover:shadow-md animate-slide-up"
     >
       <span className={`mb-3 inline-block self-start rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}>
         {post.category.replace("-", " ")}

@@ -36,7 +36,7 @@ export default function NewsletterCTA() {
   };
 
   return (
-    <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/6 via-accent/10 to-accent/5 border border-border p-10 sm:p-14 text-center">
+    <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/6 via-accent/10 to-accent/5 border border-border p-6 sm:p-10 md:p-14 text-center">
       <div className="absolute inset-0 opacity-40">
         <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full bg-accent/15 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
@@ -56,7 +56,7 @@ export default function NewsletterCTA() {
             d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
           />
         </svg>
-        <h2 className="mb-3 text-2xl font-bold font-serif text-foreground tracking-tight">
+        <h2 className="mb-3 text-xl sm:text-2xl font-bold font-serif text-foreground tracking-tight">
           Receba novos artigos
         </h2>
         <p className="mb-6 max-w-md mx-auto text-sm leading-relaxed text-muted-foreground">
@@ -83,7 +83,7 @@ export default function NewsletterCTA() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'loading'}
-              className="flex-1 rounded-full border border-border bg-card px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent/40 focus:outline-none focus:ring-3 focus:ring-accent/10 transition-all"
+              className="flex-1 rounded-full border border-border bg-card px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-accent/40 focus:outline-none focus:ring-3 focus:ring-accent/10 transition-all"
             />
             <button
               type="submit"

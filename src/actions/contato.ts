@@ -1,6 +1,8 @@
 'use server'
 
 import nodemailer from 'nodemailer'
+import { checkEmailRateLimit } from '@/lib/rate-limit'
+import { headers } from 'next/headers'
 
 type FormState = {
   success: boolean
@@ -8,12 +10,21 @@ type FormState = {
 }
 
 export async function enviarContato(prevState: FormState | null, formData: FormData): Promise<FormState> {
-  const nome = formData.get('nome')?.toString() ?? ''
-  const email = formData.get('email')?.toString() ?? ''
-  const mensagem = formData.get('mensagem')?.toString() ?? ''
+  const honeypot = formData.get('website')?.toString() ?? ''
+  if (honeypot) {
+    return { success: true }
+  }
+
+  const nome = formData.get('nome')?.toString().trim() ?? ''
+  const email = formData.get('email')?.toString().trim() ?? ''
+  const mensagem = formData.get('mensagem')?.toString().trim() ?? ''
 
   if (!nome || !email || !mensagem) {
     return { success: false, error: 'Todos os campos são obrigatórios.' }
+  }
+
+  if (nome.length > 100 || email.length > 320 || mensagem.length > 5000) {
+    return { success: false, error: 'Dados excedem o tamanho máximo permitido.' }
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -23,6 +34,15 @@ export async function enviarContato(prevState: FormState | null, formData: FormD
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
     console.error('EMAIL_USER ou EMAIL_PASS não configurados.')
     return { success: false, error: 'Servidor não configurado para envio de emails. Configure as variáveis de ambiente.' }
+  }
+
+  const headersList = await headers()
+  const forwarded = headersList.get('x-forwarded-for')
+  const ip = forwarded?.split(',')[0]?.trim() ?? 'unknown'
+  const rateCheck = checkEmailRateLimit(`contato:${ip}`)
+
+  if (!rateCheck.allowed) {
+    return { success: false, error: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.' }
   }
 
   try {

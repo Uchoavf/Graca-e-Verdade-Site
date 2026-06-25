@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/50">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 sm:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
           <div>
             <Link href="/" className="flex items-center gap-2.5 text-lg font-bold text-foreground font-serif" aria-label="Graça & Verdade — Início">
               <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10">

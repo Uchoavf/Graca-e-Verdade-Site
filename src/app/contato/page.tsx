@@ -7,12 +7,12 @@ export default function Contato() {
   const [state, formAction, pending] = useActionState(enviarContato, null)
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-20">
-      <section className="mb-12 text-center">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-20">
+      <section className="mb-10 sm:mb-12 text-center">
         <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-accent">
           Contato
         </span>
-        <h1 className="mb-4 text-4xl font-bold font-serif text-foreground sm:text-5xl">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground">
           Entre em contato
         </h1>
         <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
@@ -20,8 +20,12 @@ export default function Contato() {
         </p>
       </section>
 
-      <div className="grid gap-12 lg:grid-cols-2">
+      <div className="grid gap-8 md:gap-12 md:grid-cols-2">
         <form action={formAction} className="flex flex-col gap-6">
+          <div aria-hidden="true" className="absolute opacity-0 pointer-events-none" style={{ top: -9999, left: -9999 }}>
+            <label htmlFor="website">Website</label>
+            <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
           <div>
             <label htmlFor="nome" className="mb-1 block text-sm font-medium text-foreground">
               Nome
@@ -31,7 +35,8 @@ export default function Contato() {
               id="nome"
               name="nome"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
+              maxLength={100}
+              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="Seu nome"
             />
           </div>
@@ -44,7 +49,8 @@ export default function Contato() {
               id="email"
               name="email"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
+              maxLength={320}
+              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="seu@email.com"
             />
           </div>
@@ -56,6 +62,7 @@ export default function Contato() {
               id="mensagem"
               name="mensagem"
               required
+              maxLength={5000}
               rows={5}
               className="w-full resize-none rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30"
               placeholder="Sua mensagem..."

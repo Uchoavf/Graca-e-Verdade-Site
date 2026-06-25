@@ -6,20 +6,7 @@ import NewsletterCTA from "@/components/NewsletterCTA";
 import ShareButtons from "@/components/ShareButtons";
 import ReadingProgress from "@/components/ReadingProgress";
 import GiscusComments from "@/components/GiscusComments";
-
-const CATEGORY_COLORS: Record<string, string> = {
-  teologia: "bg-rose-50 text-rose-700",
-  "vida-crista": "bg-emerald-50 text-emerald-700",
-  devocional: "bg-amber-50 text-amber-700",
-  apologetica: "bg-sky-50 text-sky-700",
-  "estudo-biblico": "bg-violet-50 text-violet-700",
-  escatologia: "bg-orange-50 text-orange-700",
-  geral: "bg-neutral-100 text-neutral-600",
-};
-
-function getColor(c: string) {
-  return CATEGORY_COLORS[c] || CATEGORY_COLORS["geral"];
-}
+import { getCategoryColor } from "@/lib/constants";
 
 export async function generateStaticParams() {
   const posts = await getSortedPosts();
@@ -75,7 +62,7 @@ export default async function Post({
   ).slice(0, 3);
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-14 sm:py-24">
+    <article className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-24">
       <ReadingProgress />
 
       {post.image && (
@@ -162,7 +149,7 @@ export default async function Post({
         <div className="flex flex-wrap items-center gap-2.5 mb-5">
           <Link
             href={`/categorias/${post.category}`}
-            className={`inline-block rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getColor(post.category)}`}
+            className={`inline-block rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColor(post.category)}`}
           >
             {post.category.replace("-", " ")}
           </Link>
@@ -176,11 +163,11 @@ export default async function Post({
           )}
         </div>
 
-        <h1 className="mb-5 text-3xl font-bold font-serif text-foreground sm:text-4xl lg:text-5xl text-balance leading-[1.15] tracking-tight">
+        <h1 className="mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-foreground text-balance leading-[1.15] tracking-tight">
           {post.title}
         </h1>
 
-        <p className="mb-6 text-lg leading-relaxed text-muted-foreground font-serif italic">
+        <p className="mb-6 text-base sm:text-lg leading-relaxed text-muted-foreground font-serif italic">
           {post.description}
         </p>
 
@@ -208,7 +195,7 @@ export default async function Post({
               <Link
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
-                className={`rounded-md px-2.5 py-1 text-[11px] font-medium ${getColor(tag)}`}
+                className={`rounded-md px-2.5 py-1 text-[11px] font-medium ${getCategoryColor(tag)}`}
               >
                 {tag}
               </Link>
@@ -231,7 +218,7 @@ export default async function Post({
           <h2 className="mb-8 text-2xl font-bold font-serif text-foreground tracking-tight">
             Artigos relacionados
           </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {relatedPosts.map((p) => (
               <ArticleCard key={p.slug} post={p} variant="compact" />
             ))}
