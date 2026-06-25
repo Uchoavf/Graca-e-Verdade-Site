@@ -14,6 +14,11 @@ preparada para loja de afiliados e venda de livros.
 **Domínio:** https://gracaeverdade.com.br
 **Deploy:** Vercel
 
+> ⚠️ **Privacidade:** Em 25/06/2026, todos os dados pessoais do autor foram temporariamente removidos
+> dos artigos (nome, email, credenciais acadêmicas, instituições, cidade, Lattes/ORCID).
+> A identificação do autor será reinserida futuramente com informações atualizadas.
+> A seção "Autoria" abaixo lista o que deve ser restaurado versus o que deve permanecer anônimo.
+
 ---
 
 ## 2. Tecnologias
@@ -341,7 +346,38 @@ Route (app)
 
 ---
 
-## 12. Repositórios Relacionados
+## 12. Autoria
+
+### Dados removidos (25/06/2026)
+
+Os seguintes dados pessoais foram removidos dos artigos e serão reinseridos futuramente
+com informações atualizadas:
+
+- Nome completo (Ewerton Uchôa Vieira Fiel)
+- Emails pessoais (ewertonuvf@gmail.com, ewertonuchoa@gmail.com)
+- Email institucional (ewerton.vieira@ibadem.edu.br)
+- Credenciais acadêmicas (UFPA, IBADEM, UFRA, Uniasselvi)
+- Vínculos profissionais (UFRA, TRF1)
+- Cidade (Ananindeua-PA)
+- Cargo eclesiástico (Diácono, Ministério Arca da Aliança)
+- Links Lattes e ORCID
+
+### O que manter anônimo permanentemente
+
+- Senhas e tokens (`.env` — nunca versionado)
+- Lista de emails da newsletter (`/data/` — gitignored)
+
+### Quando atualizar
+
+Antes de republicar os dados do autor:
+1. Verificar se credenciais acadêmicas e profissionais estão atualizadas
+2. Confirmar emails ativos
+3. Atualizar links Lattes/ORCID com as URLs completas
+4. Revisar o texto da bio do autor em cada artigo
+
+---
+
+## 13. Repositórios Relacionados
 
 | Repositório | Descrição |
 |-------------|-----------|

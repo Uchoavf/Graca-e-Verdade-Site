@@ -160,5 +160,3 @@ BÍBLIA. A.T. Salmos. In: BÍBLIA Sagrada. Tradução de João Ferreira de Almei
 BÍBLIA. A.T. 1 Reis. In: BÍBLIA Sagrada. Tradução de João Ferreira de Almeida. Edição Revista e Corrigida. São Paulo: Sociedade Bíblica do Brasil, 1995.
 
 BÍBLIA. A.T. Rute. In: BÍBLIA Sagrada. Tradução de João Ferreira de Almeida. Edição Revista e Corrigida. São Paulo: Sociedade Bíblica do Brasil, 1995.
-
-¹ Ewerton Uchôa Vieira Fiel é Diácono da Igreja Assembleia de Deus, integrante do Ministério Arca da Aliança, Subsede PAAR, em Ananindeua-PA. Bacharelando em Teologia pelo Instituto Bíblico da Assembleia de Deus no Maguari (IBADEM). Graduando em Administração pela Universidade Federal Rural da Amazônia (UFRA). E-mail: ewertonuchoa@gmail.com | E-mail institucional: ewerton.vieira@ibadem.edu.br | Lattes: http://lattes.cnpq.br/ | ORCID: https://orcid.org/

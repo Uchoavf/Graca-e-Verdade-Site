@@ -152,5 +152,3 @@ BÍBLIA. N. T. Tiago. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paul
 BÍBLIA. N. T. 1 João. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007.
 
 BÍBLIA. N. T. Apocalipse. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007.
-
-¹ Diácono da Igreja Assembleia de Deus — Ministério Arca da Aliança, Subsede PAAR. Bacharelando em Teologia pelo Instituto Bíblico da Assembleia de Deus no Maguari (IBADEM). Graduando em Administração pela Universidade Federal Rural da Amazônia (UFRA). Servidor Público Federal. E-mail: ewertonuvf@gmail.com.

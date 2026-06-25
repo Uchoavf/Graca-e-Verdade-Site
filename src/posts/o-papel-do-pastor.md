@@ -123,5 +123,3 @@ BÍBLIA. N. T. 2 Timóteo. In: BÍBLIA. Português. Almeida Corrigida Fiel. São
 BÍBLIA. N. T. Tito. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007. Tito 1.
 
 BÍBLIA. N. T. 1 Pedro. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007. 1 Pedro 5.
-
-* Economista pela Universidade Federal do Pará (UFPA). Mestre em Economia (UFPA). Pós-graduado em Projetos e Processos (Uniasselvi). Servidor Público Federal — Secretário da Reitoria da UFRA. Fiscal Titular de Contratos da UFRA. Diácono da Igreja Assembleia de Deus — Ministério Arca da Aliança (Subsede PAAR). Auxiliar de Justiça no TRF1/SJPA.

@@ -174,5 +174,3 @@ BÍBLIA. N. T. 1 Pedro. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Pa
 BÍBLIA. N. T. 1 João. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007. 1 João 4.
 
 BÍBLIA. N. T. Apocalipse. In: BÍBLIA. Português. Almeida Corrigida Fiel. São Paulo: Sociedade Bíblica Trinitariana do Brasil, 2007. Apocalipse 19.
-
-* Economista pela Universidade Federal do Pará (UFPA). Mestre em Economia (UFPA). Pós-graduado em Projetos e Processos (Uniasselvi). Servidor Público Federal — Secretário da Reitoria da UFRA. Fiscal Titular de Contratos da UFRA. Auxiliar de Justiça no TRF1/SJPA.

@@ -118,6 +118,7 @@ export default function BibleReader() {
   const [currentChapter, setCurrentChapter] = useState(1);
   const [highlightedVerse, setHighlightedVerse] = useState<number | null>(null);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [fullTextResults, setFullTextResults] = useState<Verse[]>([]);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
@@ -208,8 +209,6 @@ export default function BibleReader() {
     },
     [index, navigateTo]
   );
-
-  const [fullTextResults, setFullTextResults] = useState<Verse[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
