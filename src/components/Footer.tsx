@@ -26,6 +26,7 @@ export default function Footer() {
               <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Início</Link>
               <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Artigos</Link>
               <Link href="/categorias" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Categorias</Link>
+              <Link href="/biblia" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Bíblia</Link>
               <Link href="/sobre" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Sobre</Link>
               <Link href="/loja" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Loja</Link>
             </nav>
