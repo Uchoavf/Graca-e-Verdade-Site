@@ -1,4 +1,4 @@
-import BibleSearch from "@/components/BibleSearch";
+import BibleReader from "@/components/BibleSearch";
 
 export const metadata = {
   title: "Bíblia Online",
@@ -16,12 +16,13 @@ export default function BibliaPage() {
           Bíblia Online
         </h1>
         <p className="max-w-xl text-muted-foreground leading-relaxed">
-          Busque versículos por referência (ex: &quot;João 3:16&quot;) ou por
-          palavra-chave. Tradução Almeida Corrigida Fiel (ACF).
+          Leia a Bíblia Sagrada online. Selecione um livro e capítulo, ou busque
+          por referência (ex: &quot;João 3:16&quot;) ou palavra-chave.
+          Tradução Almeida Corrigida Fiel (ACF).
         </p>
       </section>
 
-      <BibleSearch />
+      <BibleReader />
 
       <div className="mt-16 rounded-2xl border border-border bg-card p-6 sm:p-8">
         <h2 className="mb-3 text-lg font-bold font-serif text-foreground">
