@@ -47,7 +47,17 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email } = await request.json();
+    let body: Record<string, unknown>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Dados inválidos. Envie um JSON com o campo email." },
+        { status: 400 }
+      );
+    }
+
+    const email = body.email;
 
     if (!email || typeof email !== "string" || !EMAIL_REGEX.test(email)) {
       return NextResponse.json({ error: "Email inválido." }, { status: 400 });
@@ -59,12 +69,14 @@ export async function POST(request: Request) {
 
     const isNew = await saveSubscriberDev(email.toLowerCase().trim());
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       message: isNew
         ? "Inscrição realizada! Em breve você receberá nossos artigos."
         : "Você já está inscrito. Em breve enviaremos novidades!",
     });
+    response.headers.set("Access-Control-Allow-Origin", "https://graca-e-verdade.vercel.app");
+    return response;
   } catch {
     return NextResponse.json(
       { error: "Erro ao processar inscrição. Tente novamente mais tarde." },
