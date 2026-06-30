@@ -1,7 +1,7 @@
 ---
 title: "A Economia do Reino: Continuidade e Ruptura entre os Testamentos"
 date: "2026-06-25"
-description: "Este artigo realiza uma análise comparativa entre os princípios econômicos do Antigo e do Novo Testamento, identificando continuidades, transformações e rupturas no desenvolvimento da economia do Reino de Deus. A partir do estudo das leis mosaicas (a"
+description: "Este artigo realiza uma análise comparativa entre os princípios econômicos do Antigo e do Novo Testamento, identificando continuidades, transformações e rupturas no desenvolvimento da economia do Reino de Deus ao longo da história bíblica."
 tags:
   - "economia do reino"
   - "antigo testamento"
@@ -74,7 +74,7 @@ Uma diferença significativa entre os Testamentos diz respeito ao horizonte da r
 
 No Novo Testamento, essa correlação é significativamente matizada e, em alguns aspectos, invertida. Jesus declara bem-aventurados os pobres (Lucas 6:20), não os ricos. Tiago afirma que Deus "escolheu os pobres deste mundo para serem ricos na fé" (Tiago 2:5). O próprio Paulo descreve seu ministério como marcado por "fome e sede", "frio e nudez" (2 Coríntios 11:27), dificuldades que não diminuíam sua fidelidade. A recompensa prometida no Novo Testamento não é primariamente material ou terrena, mas escatológica: "a incorruptível coroa da glória" (1 Pedro 5:4), "a herança incorruptível, incontaminável, e que se não pode murchar, guardada nos céus" (1 Pedro 1:4). Isto não significa que o Novo Testamento seja indiferente às condições materiais — como demonstram as coletas e a preocupação com os pobres —, mas que o horizonte último da recompensa é deslocado do presente para o futuro escatológico. A teologia da prosperidade que promete riquezas terrenas como sinal de bênção divina encontra, portanto, pouco ou nenhum apoio no Novo Testamento.
 
-4 A ECONOMIA DO REINO NOS DIAS ATUAIS
+## 4 A ECONOMIA DO REINO NOS DIAS ATUAIS
 
 Após examinar as continuidades e as transformações entre os Testamentos, cabe perguntar: como esses princípios podem e devem ser aplicados pela igreja e pela sociedade no século XXI? Vivemos em um mundo onde a desigualdade econômica atingiu níveis historicamente inéditos. Segundo dados da Oxfam, o 1% mais rico da população mundial detém mais riqueza do que os 99% restantes. O endividamento das famílias, a precarização do trabalho, a concentração fundiária e a degradação ambiental são realidades que clamam por uma resposta à luz dos valores do Reino. A economia bíblica oferece princípios que, embora não constituam um programa político ou um sistema econômico completo, fornecem orientações éticas fundamentais para enfrentar esses desafios.
 

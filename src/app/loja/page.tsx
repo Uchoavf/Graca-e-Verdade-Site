@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 
 const PRODUCTS = [
@@ -111,6 +113,7 @@ export default function StorePage() {
         </p>
         <button
           type="button"
+          onClick={() => alert("Programa de afiliados em breve!")}
           className="rounded-full bg-accent px-8 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm"
         >
           Quero ser afiliado

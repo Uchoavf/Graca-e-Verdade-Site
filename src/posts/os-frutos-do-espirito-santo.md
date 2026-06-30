@@ -1,5 +1,5 @@
 ---
-title: "Os Frutos do Espírito Santo"
+title: "O Fruto do Espírito Santo"
 date: "2026-06-05"
 description: "Uma análise detalhada dos nove frutos do Espírito listados em Gálatas 5, e como cultivá-los na vida cristã."
 tags: ["espírito santo", "frutos", "caráter", "gálatas"]

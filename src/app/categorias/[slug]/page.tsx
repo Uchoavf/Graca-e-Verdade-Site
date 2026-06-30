@@ -18,7 +18,7 @@ export default async function CategoryPage({
   const categories = await getCategories();
   const category = categories.find((c) => c.slug === slug);
 
-  if (!categories.length) notFound();
+  if (!category) notFound();
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">

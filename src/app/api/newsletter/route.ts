@@ -71,9 +71,9 @@ export async function POST(request: Request) {
 
     const response = NextResponse.json({
       success: true,
-      message: isNew
+      message: IS_LOCAL && isNew
         ? "Inscrição realizada! Em breve você receberá nossos artigos."
-        : "Você já está inscrito. Em breve enviaremos novidades!",
+        : "Inscrições em breve disponíveis. Obrigado pelo interesse!",
     });
     response.headers.set("Access-Control-Allow-Origin", "https://graca-e-verdade.vercel.app");
     return response;

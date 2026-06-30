@@ -1,7 +1,7 @@
 ---
 title: "A Relação entre Marido e Mulher à Luz da Bíblia"
 date: "2026-06-25"
-description: "Este artigo examina a relação entre marido e mulher à luz das Escrituras Sagradas, tendo por base a versão Almeida Corrigida Fiel (ACF). A partir da narrativa da criação em Gênesis, são analisados os fundamentos divinos do matrimônio, os deveres e re"
+description: "Este artigo examina a relação entre marido e mulher à luz das Escrituras Sagradas, tendo por base a versão Almeida Corrigida Fiel (ACF). A partir da narrativa da criação em Gênesis, são analisados os fundamentos divinos do matrimônio, os deveres e responsabilidades de cada cônjuge e o propósito eterno da aliança matrimonial."
 tags:
   - "casamento"
   - "marido"
@@ -114,7 +114,7 @@ Em segundo lugar, o casamento aprovado é marcado pelo amor sacrificial e respei
 
 Em terceiro lugar, o casamento aprovado é caracterizado pela fidelidade exclusiva. O sétimo mandamento (Êxodo 20:14), a advertência de Provérbios contra o adultério (Provérbios 5:15-20; 6:27-35) e o ensino de Jesus (Mateus 5:27-28) estabelecem que a fidelidade não é apenas física, mas também mental e emocional. O casamento aprovado por Deus é monogâmico, heterossexual e vitalício, conforme o padrão original estabelecido em Gênesis.
 
-Em quarto lugar, é um casamento onde ambos são coerdeiros da graça. Pedro declara que marido e mulher são "coerdeiros da graça da vida" (1 Pedro 3:7), indicando que há plena igualdade espiritual diante de Deus. Gêlatas 3:28 confirma: "Nisto não há macho nem fêmea; porque todos vós sois um em Cristo Jesus". No plano espiritual, não há hierarquia; ambos têm acesso igual à salvação, aos dons espirituais e à presença de Deus.
+Em quarto lugar, é um casamento onde ambos são coerdeiros da graça. Pedro declara que marido e mulher são "coerdeiros da graça da vida" (1 Pedro 3:7), indicando que há plena igualdade espiritual diante de Deus. Gálatas 3:28 confirma: "Nisto não há macho nem fêmea; porque todos vós sois um em Cristo Jesus". No plano espiritual, não há hierarquia; ambos têm acesso igual à salvação, aos dons espirituais e à presença de Deus.
 
 Em quinto lugar, é um casamento que glorifica a Deus. A união conjugal foi criada para refletir a glória de Deus ao mundo. Quando marido e mulher se amam, se respeitam e vivem em fidelidade e harmonia, eles demonstram ao mundo o amor de Cristo pela Igreja (Efésios 5:32). O casamento cristão é, portanto, uma ferramenta evangelística e um testemunho do poder transformador do evangelho.
 
@@ -124,7 +124,7 @@ O Salmo 128, o "salmo da família bem-aventurada", retrata a bênção divina so
 
 Ao longo deste artigo, examinou-se a relação entre marido e mulher fundamentada exclusivamente nas Escrituras Sagradas. O casamento, conforme revelado na Bíblia, não é uma invenção humana, mas uma instituição divina estabelecida por Deus no Éden, antes da entrada do pecado no mundo (Gênesis 1:27-28; 2:18-24). Desde o princípio, Deus determinou que o homem e a mulher fossem parceiros iguais em dignidade, complementares em suas diferenças e unidos em uma aliança vitalícia.
 
-A Bíblia atribui ao marido a responsabilidade de amar sua esposa como Cristo amou a Igreja — com amor sacrificial, provedor, protetor e santificador (Efésios 5:25-33). Deve honrá-la como coerdeira da graça, tratar-lhe com entendimento e jamais irar-se contra ela (1 Pedro 3:7; Colossenses 3:19). À esposa, as Escrituras atribuem o papel de auxiliadora idônea, parceira fiel, administradora sábia do lar e submissa voluntária ao liderança amorosa do marido (Efésios 5:22-24; Provérbios 31; Tito 2:4-5).
+A Bíblia atribui ao marido a responsabilidade de amar sua esposa como Cristo amou a Igreja — com amor sacrificial, provedor, protetor e santificador (Efésios 5:25-33). Deve honrá-la como coerdeira da graça, tratar-lhe com entendimento e jamais irar-se contra ela (1 Pedro 3:7; Colossenses 3:19). À esposa, as Escrituras atribuem o papel de auxiliadora idônea, parceira fiel, administradora sábia do lar e submissa voluntária à liderança amorosa do marido (Efésios 5:22-24; Provérbios 31; Tito 2:4-5).
 
 Os direitos recíprocos são claramente afirmados: ambos têm poder sobre o corpo do outro e devem pagar a devida benevolência conjugal (1 Coríntios 7:3-5). O amor é apresentado como o fundamento e o vínculo da perfeição na relação conjugal (1 Coríntios 13; Colossenses 3:14), e o casamento é elevado à condição de símbolo vivo da união entre Cristo e a Igreja (Efésios 5:31-32; Apocalipse 19:7-9).
 

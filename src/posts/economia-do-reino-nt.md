@@ -1,7 +1,7 @@
 ---
 title: "A Economia do Reino: Princípios Econômicos no Novo Testamento"
 date: "2026-06-25"
-description: "Este artigo examina os princípios econômicos presentes no Novo Testamento, com ênfase no ensino de Jesus Cristo e na prática da igreja primitiva. A partir das parábolas econômicas de Jesus (o rico insensato, o administrador infiel, o rico e Lázaro, o"
+description: "Este artigo examina os princípios econômicos presentes no Novo Testamento, com ênfase no ensino de Jesus Cristo e na prática da igreja primitiva. A partir das parábolas econômicas de Jesus e dos ensinos apostólicos, são analisados os fundamentos da mordomia cristã."
 tags:
   - "economia do reino"
   - "novo testamento"
@@ -20,7 +20,7 @@ A proclamação do Reino de Deus feita por Jesus carrega implicações econômic
 
 A igreja primitiva, por sua vez, não apenas ouviu esses ensinamentos — ela os praticou de forma radical. O livro de Atos dos Apóstolos registra que os primeiros crentes "tinham tudo em comum" (Atos 2:44), vendiam propriedades e distribuíam os recursos conforme a necessidade de cada um, de modo que "não havia entre eles necessitado algum" (Atos 4:34). Embora essa comunidade de bens não tenha sido uma imposição normativa para todas as igrejas em todos os tempos, ela demonstra o ethos econômico do Reino em sua expressão mais intensa. Este artigo propõe-se a examinar, exclusivamente com base nos escritos do Novo Testamento, os princípios que regem a economia do Reino de Deus: o ensino de Jesus sobre as riquezas, as parábolas econômicas, a prática comunitária da igreja nascente, a teologia paulina da generosidade, a ética do trabalho, o contentamento cristão e a denúncia profética contra a opressão econômica.
 
-2 A ECONOMIA DO REINO NO NOVO TESTAMENTO
+## 2 A ECONOMIA DO REINO NO NOVO TESTAMENTO
 
 ### 2.1 Jesus e as Riquezas no Sermão do Monte
 

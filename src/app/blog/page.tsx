@@ -4,10 +4,21 @@ import ArticleCard from "@/components/ArticleCard";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import { getCategoryColor } from "@/lib/constants";
 
-export default async function Blog() {
-  const posts = await getSortedPosts();
+export default async function Blog({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const allPosts = await getSortedPosts();
   const categories = await getCategories();
   const tags = await getAllTags();
+  const { tag } = await searchParams;
+
+  const posts = tag
+    ? allPosts.filter((p) =>
+        p.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+      )
+    : allPosts;
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
@@ -16,11 +27,22 @@ export default async function Blog() {
           Artigos
         </span>
         <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
-          Todos os artigos
+          {tag ? `Tag: ${tag}` : "Todos os artigos"}
         </h1>
-        <p className="max-w-2xl text-muted-foreground leading-relaxed">
-          Explore nossa coleção de estudos bíblicos, reflexões devocionais e artigos teológicos.
-        </p>
+        {tag ? (
+          <div className="flex items-center gap-2">
+            <p className="text-muted-foreground leading-relaxed">
+              {posts.length} {posts.length === 1 ? "artigo encontrado" : "artigos encontrados"} com esta tag.
+            </p>
+            <Link href="/blog" className="text-xs font-medium text-accent hover:underline">
+              Limpar filtro
+            </Link>
+          </div>
+        ) : (
+          <p className="max-w-2xl text-muted-foreground leading-relaxed">
+            Explore nossa coleção de estudos bíblicos, reflexões devocionais e artigos teológicos.
+          </p>
+          )}
       </section>
 
       <div className="grid gap-8 md:gap-10 md:grid-cols-[1fr_240px]">

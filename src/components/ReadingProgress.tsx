@@ -10,8 +10,9 @@ export default function ReadingProgress() {
       const article = document.querySelector('article');
       if (!article) return;
 
-      const articleTop = article.offsetTop;
-      const articleHeight = article.offsetHeight;
+      const rect = article.getBoundingClientRect();
+      const articleTop = rect.top + window.scrollY;
+      const articleHeight = rect.height;
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
       const total = articleHeight - windowHeight;

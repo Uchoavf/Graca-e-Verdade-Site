@@ -51,7 +51,7 @@ export async function getSortedPosts(): Promise<PostData[]> {
         author: data.author ?? 'Graça & Verdade',
         featured: data.featured ?? false,
         image: data.image ?? undefined,
-        readingTime: data.readingTime ?? estimateReadingTime(content),
+        readingTime: typeof data.readingTime === 'string' ? data.readingTime : estimateReadingTime(content),
       }
     })
 
@@ -145,7 +145,7 @@ export async function getPostBySlug(slug: string) {
     author: data.author ?? 'Graça & Verdade',
     featured: data.featured ?? false,
     image: data.image ?? undefined,
-    readingTime: data.readingTime ?? estimateReadingTime(content),
+    readingTime: typeof data.readingTime === 'string' ? data.readingTime : estimateReadingTime(content),
     contentHtml: processedContent.toString(),
   }
 }

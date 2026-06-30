@@ -9,5 +9,5 @@ export const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export function getCategoryColor(category: string): string {
-  return CATEGORY_COLORS[category] ?? CATEGORY_COLORS["geral"];
+  return CATEGORY_COLORS[category.toLowerCase()] ?? CATEGORY_COLORS["geral"];
 }

@@ -1,7 +1,7 @@
 ---
 title: "A Economia do Reino: Princípios Econômicos no Antigo Testamento"
 date: "2026-06-25"
-description: "Este artigo analisa os princípios econômicos presentes no Antigo Testamento, demonstrando que a Torá e os Profetas articulam um sofisticado sistema econômico fundamentado na soberania absoluta de Deus sobre a criação. A partir do princípio fundante d"
+description: "Este artigo analisa os princípios econômicos presentes no Antigo Testamento, demonstrando que a Torá e os Profetas articulam um sofisticado sistema econômico fundamentado na soberania absoluta de Deus sobre a criação."
 tags:
   - "economia bíblica"
   - "antigo testamento"
@@ -20,7 +20,7 @@ A relevância deste estudo transcende o interesse meramente histórico ou exegé
 
 Este artigo está estruturado em três seções principais. A primeira seção (seção 2) constitui o corpo central da pesquisa, subdividida em onze subseções que examinam, respectivamente: o princípio fundamental da soberania divina sobre a criação; a teologia da terra como herança familiar inalienável; o sistema do Ano Sabático e do Jubileu como coração do ordenamento econômico; a remissão de dívidas e a libertação de servos; o sistema de dízimos, primícias e ofertas como mecanismo de assistência e culto; a proteção ao trabalhador e aos vulneráveis; a proibição da usura; a ética de pesos e medidas e a integridade comercial; a sabedoria econômica do livro de Provérbios; a economia da aliança expressa em bênçãos e maldições; e, finalmente, lições do modelo veterotestamentário para a economia contemporânea. A segunda seção (seção 3) apresenta a conclusão, sintetizando os achados e apontando para o cumprimento neotestamentário em Cristo. A terceira seção lista as referências bíblicas e bibliográficas consultadas.
 
-2 A ECONOMIA DO ANTIGO TESTAMENTO: FUNDAMENTOS E INSTITUIÇÕES
+## 2 A ECONOMIA DO ANTIGO TESTAMENTO: FUNDAMENTOS E INSTITUIÇÕES
 
 ### 2.1 O Princípio Fundamental: Deus como Senhor Absoluto
 

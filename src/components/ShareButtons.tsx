@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface ShareButtonsProps {
   title: string;
@@ -9,6 +9,13 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
 
   const url = typeof window !== 'undefined'
     ? `${window.location.origin}/blog/${slug}`
@@ -18,9 +25,14 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const encodedUrl = encodeURIComponent(url);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    navigator.clipboard.writeText(url).then(() => {
+      if (!mountedRef.current) return;
+      setCopied(true);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        if (mountedRef.current) setCopied(false);
+      }, 2000);
+    }).catch(() => {});
   };
 
   return (

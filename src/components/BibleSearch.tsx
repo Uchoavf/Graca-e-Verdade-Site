@@ -110,6 +110,7 @@ function resolveBook(query: string): string | null {
 
 export default function BibleReader() {
   const [index, setIndex] = useState<BibleIndex | null>(null);
+  const [loadError, setLoadError] = useState(false);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -126,11 +127,19 @@ export default function BibleReader() {
   useEffect(() => {
     let cancelled = false;
     fetch('/biblia-index.json')
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error('Falha ao carregar');
+        return r.json();
+      })
       .then((data) => {
         if (!cancelled) setIndex(data as BibleIndex);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) {
+          setIndex(null);
+          setLoadError(true);
+        }
+      });
     return () => {
       cancelled = true;
     };
@@ -173,8 +182,6 @@ export default function BibleReader() {
       if (!index || !q.trim()) return;
 
       setLoading(true);
-      setShowSearchResults(true);
-
       const ref = parseReference(q);
       if (ref?.book && ref.chapter) {
         const bookName = resolveBook(ref.book);
@@ -185,6 +192,8 @@ export default function BibleReader() {
           return;
         }
       }
+
+      setShowSearchResults(true);
 
       // Full-text search
       const normalizedQuery = normalizeText(q);
@@ -283,15 +292,36 @@ export default function BibleReader() {
         </div>
       )}
 
+      {showSearchResults && !loading && fullTextResults.length === 0 && (
+        <p className="py-6 text-center text-sm text-muted-foreground">
+          Nenhum versículo encontrado para &quot;{query}&quot;. Tente uma referência como &quot;João 3:16&quot;.
+        </p>
+      )}
+
+      {loadError && (
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-800 dark:bg-red-950">
+          <p className="text-sm font-medium text-red-700 dark:text-red-400">
+            Não foi possível carregar o índice da Bíblia.
+          </p>
+          <button
+            onClick={() => { setLoadError(false); window.location.reload(); }}
+            className="mt-3 rounded-lg bg-red-100 px-4 py-2 text-xs font-semibold text-red-700 hover:bg-red-200 transition-colors dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800"
+          >
+            Tentar novamente
+          </button>
+        </div>
+      )}
+
       {/* Navigation controls */}
       {bookNames.length > 0 && (
         <div className="flex flex-wrap items-end gap-2 sm:gap-3 rounded-xl border border-border bg-muted/30 p-3 sm:p-4">
           {/* Book selector */}
           <div className="flex-1 min-w-[140px]">
-            <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+            <label htmlFor="bible-book-select" className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
               Livro
             </label>
             <select
+              id="bible-book-select"
               value={currentBook}
               onChange={(e) => {
                 setCurrentBook(e.target.value);
@@ -310,10 +340,11 @@ export default function BibleReader() {
 
           {/* Chapter input */}
           <div className="w-20 sm:w-24">
-            <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+            <label htmlFor="bible-chapter-input" className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
               Capítulo
             </label>
             <input
+              id="bible-chapter-input"
               type="number"
               min={1}
               max={chapters || 1}
@@ -400,11 +431,9 @@ export default function BibleReader() {
                   {v.text}
                   <button
                     onClick={() => {
-                      const url = new URL(window.location.href);
-                      url.hash = '';
                       navigator.clipboard.writeText(
                         `${v.ref} — ${v.text}`
-                      );
+                      ).catch(() => {});
                     }}
                     className="ml-1.5 inline-flex items-center rounded px-1 py-0.5 text-[10px] text-muted-foreground/30 opacity-0 transition-opacity group-hover:opacity-60 hover:opacity-100 hover:text-accent"
                     title="Copiar versículo"
