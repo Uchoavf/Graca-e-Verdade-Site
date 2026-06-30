@@ -1,6 +1,8 @@
 # Graça & Verdade — Blog Bíblico e Teologia Cristã
 
-Blog cristão voltado à edificação da fé, com artigos sobre teologia, vida cristã, estudos bíblicos, devocionais e apologética. Estrutura preparada para expansão futura com loja de afiliados e venda de livros.
+Blog cristão voltado à edificação da fé, com **11 artigos** sobre teologia, vida cristã, estudos bíblicos, devocionais e apologética. Inclui **leitor bíblico online** (ACF) com busca e navegação. Estrutura preparada para loja de afiliados e venda de livros.
+
+🌐 **[graca-e-verdade.vercel.app](https://graca-e-verdade.vercel.app)**
 
 > *"E conhecerão a verdade, e a verdade os libertará."* — João 8:32
 
@@ -176,6 +178,7 @@ Inspirada no design do site do Claude (Anthropic) — tons quentes, creme e dour
 | `/sobre` | Static | Missão, valores e identidade do projeto |
 | `/contato` | Static | Formulário de contato funcional |
 | `/loja` | Static | Vitrine de produtos e programa de afiliados |
+| `/biblia` | Static | Leitor bíblico online — busca e navegação (ACF) |
 
 ---
 

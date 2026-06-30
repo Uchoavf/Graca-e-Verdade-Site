@@ -12,12 +12,13 @@ preparada para loja de afiliados e venda de livros.
 
 **Repositório:** `Uchoavf/Graca-e-Verdade-Site`
 **Domínio:** https://gracaeverdade.com.br
-**Deploy:** Vercel
+**Deploy:** Vercel — auto-deploy a cada push
+**URL produção:** https://graca-e-verdade.vercel.app
 
 > ⚠️ **Privacidade:** Em 25/06/2026, todos os dados pessoais do autor foram temporariamente removidos
 > dos artigos (nome, email, credenciais acadêmicas, instituições, cidade, Lattes/ORCID).
 > A identificação do autor será reinserida futuramente com informações atualizadas.
-> A seção "Autoria" abaixo lista o que deve ser restaurado versus o que deve permanecer anônimo.
+> Veja a seção "Autoria" para detalhes.
 
 ---
 
@@ -41,67 +42,61 @@ preparada para loja de afiliados e venda de livros.
 
 ```
 graca-e-verdade/
-├── public/                         # Arquivos estáticos (favicon, og-image, SVGs)
+├── public/
+│   ├── biblia-index.json             # Índice da Bíblia ACF (31k versículos, 6 MB)
+│   ├── favicon.svg / favicon.ico
+│   └── og-image.svg
+├── scripts/
+│   ├── parse-biblia.ts               # Gera biblia-index.json a partir da ACF .txt
+│   └── extrair_artigos.py            # Extrai .docx → .md (puro Python, sem deps)
 ├── src/
 │   ├── actions/
-│   │   └── contato.ts              # Server Action — envia email via Nodemailer
+│   │   └── contato.ts                # Server Action — email via Nodemailer (+ rate limit + honeypot)
 │   ├── app/
-│   │   ├── api/
-│   │   │   └── newsletter/
-│   │   │       └── route.ts        # API route de newsletter (stub — retorna sempre ok)
+│   │   ├── api/newsletter/route.ts   # API newsletter — salva em /data/newsletter.json
+│   │   ├── biblia/page.tsx           # Leitor bíblico online (ACF)
 │   │   ├── blog/
-│   │   │   ├── page.tsx            # Lista de artigos com sidebar (categorias + tags + loja)
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx        # Artigo individual (reading progress, share, giscus, JSON-LD)
+│   │   │   ├── page.tsx              # Lista de artigos com sidebar
+│   │   │   └── [slug]/page.tsx       # Artigo individual
 │   │   ├── categorias/
-│   │   │   ├── page.tsx            # Grade de categorias
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx        # Artigos filtrados por categoria
-│   │   ├── contato/
-│   │   │   └── page.tsx            # Formulário de contato funcional (useActionState)
-│   │   ├── loja/
-│   │   │   └── page.tsx            # Placeholder — vitrine de produtos e afiliados
-│   │   ├── sobre/
-│   │   │   └── page.tsx            # Missão, valores e identidade
-│   │   ├── favicon.ico
-│   │   ├── globals.css             # CSS global + variáveis de tema + estilos .prose
-│   │   ├── layout.tsx              # Layout raiz (Header + Footer + fontes)
-│   │   ├── not-found.tsx           # Página 404 com versículo
-│   │   ├── page.tsx                # Home (hero, destaques, categorias, recentes, newsletter)
-│   │   ├── robots.ts               # robots.txt dinâmico
-│   │   └── sitemap.ts              # sitemap.xml dinâmico
+│   │   │   ├── page.tsx              # Grade de categorias
+│   │   │   └── [slug]/page.tsx       # Artigos por categoria
+│   │   ├── contato/page.tsx          # Formulário com honeypot
+│   │   ├── loja/page.tsx             # Placeholder de loja
+│   │   ├── sobre/page.tsx            # Missão e valores
+│   │   ├── globals.css               # Tema, variáveis CSS, .prose, animações
+│   │   ├── layout.tsx                # Header + Footer + fontes
+│   │   ├── page.tsx                  # Home (hero, destaques, categorias, newsletter)
+│   │   ├── not-found.tsx             # 404
+│   │   ├── robots.ts / sitemap.ts
 │   ├── components/
-│   │   ├── ArticleCard.tsx         # Card de artigo (3 variantes: default, featured, compact)
-│   │   ├── CopyLinkButton.tsx      # [ÓRFÃO] — não importado em lugar nenhum
-│   │   ├── Footer.tsx              # Rodapé com navegação, versículo e redes sociais
-│   │   ├── GiscusComments.tsx      # Comentários via GitHub Discussions
-│   │   ├── Header.tsx              # Header sticky com menu hamburger responsivo
-│   │   ├── NewsletterCTA.tsx       # CTA de newsletter (client component)
-│   │   ├── ProjectCard.tsx         # [ÓRFÃO] — não importado, legado de projeto antigo
-│   │   ├── ReadingProgress.tsx     # Barra de progresso de leitura
-│   │   ├── ShareButtons.tsx        # Compartilhar (WhatsApp, Telegram, X, copiar link)
-│   │   ├── ThemeScript.tsx         # Script inline p/ evitar flash no carregamento
-│   │   ├── ThemeToggle.tsx         # Toggle dark/light mode
-│   │   └── WhatsAppButton.tsx      # [ÓRFÃO] — não importado, placeholder
+│   │   ├── ArticleCard.tsx           # Card (default, featured, compact)
+│   │   ├── BibleSearch.tsx           # Leitor bíblico com busca e navegação
+│   │   ├── Footer.tsx                # Rodapé
+│   │   ├── GiscusComments.tsx        # Comentários GitHub
+│   │   ├── Header.tsx                # Navbar responsiva
+│   │   ├── NewsletterCTA.tsx         # CTA newsletter
+│   │   ├── ReadingProgress.tsx       # Barra de progresso
+│   │   ├── ShareButtons.tsx          # WhatsApp, Telegram, X, copiar
+│   │   ├── ThemeScript.tsx           # Script inline anti-flash
+│   │   └── ThemeToggle.tsx           # Dark/light toggle
 │   ├── lib/
-│   │   └── posts.ts                # Leitura de posts (fs + gray-matter + remark)
-│   └── posts/                      # 6 artigos em Markdown
-│       ├── como-estudar-a-biblia-guia-pratico.md
-│       ├── fe-e-obras-o-ensino-de-tiago.md
-│       ├── o-amor-de-deus-revelado-na-cruz.md
-│       ├── o-poder-transformador-da-oracao.md
-│       ├── o-que-e-a-graca-de-deus.md
-│       └── os-frutos-do-espirito-santo.md
-├── .gitignore
-├── AGENTS.md                       # Instruções para LLM agents
-├── DOCUMENTACAO.md                 # Este arquivo
-├── README.md                       # Documentação pública do projeto
+│   │   ├── constants.ts              # CATEGORY_COLORS + getCategoryColor()
+│   │   ├── posts.ts                  # Leitura de Markdown (fs + gray-matter + remark)
+│   │   └── rate-limit.ts             # Rate limiting in-memory (5 req/min)
+│   └── posts/                        # 11 artigos em Markdown
+│       ├── [6 artigos originais]
+│       └── [5 artigos do Artigos-luz-biblia]
+├── .env.example                      # Template de variáveis de ambiente
+├── .gitignore                        # Protege .env, /data/, node_modules
+├── AGENTS.md
+├── DEPLOY.md                         # Guia completo de deploy
+├── DOCUMENTACAO.md                   # Este arquivo
+├── README.md
 ├── eslint.config.mjs
-├── next.config.ts
+├── next.config.ts                    # Headers de segurança
 ├── package.json
-├── package-lock.json
-├── postcss.config.mjs
-├── start-dev.sh                    # Script de inicialização com caminho fixo (corrigir)
+├── start-dev.sh                      # Script genérico (usa $SCRIPT_DIR)
 └── tsconfig.json
 ```
 
@@ -109,32 +104,17 @@ graca-e-verdade/
 
 ## 4. Como Rodar
 
-### Pré-requisitos
-
-- **Node.js** 18+ (recomendado via [nvm](https://github.com/nvm-sh/nvm))
-
-### Passo a passo
-
 ```bash
-# 1. Clonar
 git clone git@github.com:Uchoavf/Graca-e-Verdade-Site.git
 cd Graca-e-Verdade-Site
-
-# 2. Instalar dependências
 npm install
-
-# 3. Rodar em desenvolvimento
-npm run dev
+npm run dev   # http://localhost:3000
 ```
-
-O site estará em `http://localhost:3000`.
-
-### Scripts
 
 | Comando | Descrição |
 |---------|-----------|
 | `npm run dev` | Servidor de desenvolvimento (Turbopack) |
-| `npm run build` | Build de produção com checagem TypeScript |
+| `npm run build` | Build de produção com TypeScript check |
 | `npm start` | Iniciar build de produção |
 | `npm run lint` | ESLint |
 
@@ -142,42 +122,37 @@ O site estará em `http://localhost:3000`.
 
 ## 5. Configurar Formulário de Contato
 
-O formulário envia emails via **Nodemailer + SMTP**. Crie um arquivo `.env`:
+Crie um arquivo `.env` (use `.env.example` como base):
 
 ```env
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=seu-email@gmail.com
-EMAIL_PASS=sua-senha-de-app
+EMAIL_PASS=sua-senha-de-app     # 16 caracteres, sem espaços
 EMAIL_FROM=seu-email@gmail.com
 EMAIL_TO=seu-email@gmail.com
 ```
 
-### Senha de app do Gmail:
+**Senha de app do Gmail:** https://myaccount.google.com/security → Verificação em duas etapas → Senhas de app.
 
-1. https://myaccount.google.com/security
-2. Ative **Verificação em duas etapas**
-3. Vá em **Senhas de app** → "Email" → "Outro"
-4. Cole a senha gerada em `EMAIL_PASS`
-
-No deploy (Vercel), adicione as variáveis em **Project Settings → Environment Variables**.
+No deploy (Vercel), adicione as variáveis em **Settings → Environment Variables**.
 
 ---
 
 ## 6. Como Adicionar Artigos
 
-Crie um arquivo `.md` em `src/posts/`:
+Crie um arquivo `.md` em `src/posts/`. O nome do arquivo vira o slug da URL.
 
 ```yaml
 ---
 title: "Título do Artigo"
-date: "2026-06-15"
+date: "2026-06-25"
 description: "Descrição curta para cards e meta tags."
 tags: ["graca", "salvacao", "cruz"]
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://images.unsplash.com/photo-xxx?w=1200&h=630&fit=crop&q=80"
+image: "https://images.unsplash.com/photo-xxxxx?w=1200&h=630&fit=crop&q=80"
 ---
 ```
 
@@ -193,6 +168,15 @@ image: "https://images.unsplash.com/photo-xxx?w=1200&h=630&fit=crop&q=80"
 | `escatologia` | Escatologia | Laranja |
 | `geral` | Geral | Cinza |
 
+### Buscar imagens no Unsplash
+
+```bash
+curl -H "Authorization: Client-ID SUA_KEY" \
+  "https://api.unsplash.com/search/photos?query=shepherd+bible&per_page=3"
+```
+
+A URL da imagem: `https://images.unsplash.com/photo-{ID}?w=1200&h=630&fit=crop&q=80`
+
 ---
 
 ## 7. Rotas
@@ -200,194 +184,239 @@ image: "https://images.unsplash.com/photo-xxx?w=1200&h=630&fit=crop&q=80"
 | Rota | Tipo | Descrição |
 |------|------|-----------|
 | `/` | Static | Home (hero, destaques, categorias, recentes, newsletter) |
-| `/blog` | Static | Lista de artigos com sidebar |
+| `/blog` | Static | Lista de 11 artigos com sidebar |
 | `/blog/[slug]` | SSG | Artigo individual (progresso, share, Giscus, JSON-LD) |
 | `/categorias` | Static | Grade de categorias |
 | `/categorias/[slug]` | SSG | Artigos por categoria |
+| `/biblia` | Static | Leitor bíblico ACF (busca + navegação por livro/capítulo) |
 | `/sobre` | Static | Missão e valores |
-| `/contato` | Static | Formulário de contato |
+| `/contato` | Static | Formulário com honeypot + rate limit |
 | `/loja` | Static | Placeholder de loja |
-| `/robots.txt` | Static | Robots dinâmico |
-| `/sitemap.xml` | Static | Sitemap dinâmico |
-| `/api/newsletter` | Dynamic | API de newsletter (stub) |
+| `/robots.txt` | Static | Gerado automaticamente |
+| `/sitemap.xml` | Static | Gerado automaticamente |
+| `/api/newsletter` | Dynamic | API de newsletter com rate limit |
 
 ---
 
-## 8. Funcionalidades Implementadas
+## 8. Artigos Publicados
+
+### Originais (6)
+
+| # | Título | Categoria | Data |
+|---|--------|-----------|------|
+| 1 | O Que é a Graça de Deus? | `teologia` | 10/06/2026 |
+| 2 | O Poder Transformador da Oração | `devocional` | 08/06/2026 |
+| 3 | Os Frutos do Espírito Santo | `vida-crista` | 05/06/2026 |
+| 4 | Como Estudar a Bíblia | `estudo-biblico` | 03/06/2026 |
+| 5 | Fé e Obras: O Ensino de Tiago | `teologia` | 01/06/2026 |
+| 6 | O Amor de Deus Revelado na Cruz | `devocional` | 28/05/2026 |
+
+### Convertidos do Artigos-luz-biblia (5)
+
+| # | Título | Categoria | Data |
+|---|--------|-----------|------|
+| 7 | As Funções e o Papel do Pastor | `teologia` | 25/06/2026 |
+| 8 | Economia do Reino — AT | `teologia` | 25/06/2026 |
+| 9 | Economia do Reino — NT | `teologia` | 25/06/2026 |
+| 10 | Economia do Reino — Comparada | `teologia` | 25/06/2026 |
+| 11 | A Relação entre Marido e Mulher | `teologia` | 25/06/2026 |
+
+---
+
+## 9. Funcionalidades Implementadas
 
 ### Design e UX
-- [x] Tema claro/escuro com toggle e detecção de sistema
-- [x] Design responsivo (mobile, tablet, desktop) — breakpoints `sm:`, `md:`, `lg:`
-- [x] Menu hamburger com backdrop blur no mobile
-- [x] Touch targets ≥ 44px nos links do menu mobile
+- [x] Tema claro/escuro com toggle e detecção de sistema (sem flash)
+- [x] Design responsivo — breakpoints `sm:` (640px), `md:` (768px iPad), `lg:` (1024px)
+- [x] Menu hamburger com backdrop blur (≤768px)
+- [x] Touch targets ≥ 44px no menu mobile
 - [x] `safe-area-inset` para iPhones com notch
-- [x] Tipografia responsiva com `clamp()` nos artigos
+- [x] `100dvh` no body (viewport dinâmico)
+- [x] Tipografia responsiva com `clamp()` na prosa
 - [x] Fontes serif (Merriweather) + sans (Geist)
-- [x] Paleta de cores quentes (creme + dourado) inspirada no Claude/Anthropic
-- [x] Animações de entrada (fade-in, slide-up, scale-in)
+- [x] Paleta creme + dourado
+- [x] Animações (fade-in, slide-up, scale-in)
 
 ### SEO e Metadados
 - [x] `generateMetadata` dinâmico por artigo
 - [x] JSON-LD estruturado (Article + BreadcrumbList)
-- [x] Open Graph e Twitter Cards
+- [x] Open Graph e Twitter Cards com imagem
 - [x] `sitemap.xml` e `robots.txt` dinâmicos
-- [x] Meta keywords e description
 - [x] `metadataBase` configurado
 
+### Segurança
+- [x] Rate limiting: newsletter (5 req/min), contato (3 req/15min)
+- [x] Honeypot anti-bot no formulário de contato
+- [x] Validação de entrada (regex, maxLength, trim)
+- [x] Headers HTTP: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- [x] CSRF protection via Next.js Server Actions
+- [x] `.env` e `/data/` no `.gitignore`
+
 ### Conteúdo
-- [x] 6 artigos em Markdown com frontmatter YAML
-- [x] Categorias extraídas dinamicamente dos posts
-- [x] Tags com links filtráveis
+- [x] 11 artigos com frontmatter YAML, imagens Unsplash
+- [x] Categorias e tags extraídas dinamicamente
 - [x] Tempo de leitura estimado (~200 palavras/min)
-- [x] Sistema de "Destaques" (featured posts)
+- [x] Imagens de capa otimizadas (Unsplash CDN, `w=1200&h=630&fit=crop&q=80`)
+- [x] 5 artigos acadêmicos convertidos via script Python
 
 ### Interatividade
 - [x] Formulário de contato funcional (Server Action + Nodemailer)
-- [x] Barra de progresso de leitura nos artigos
+- [x] Barra de progresso de leitura
 - [x] Botões de compartilhamento (WhatsApp, Telegram, X, copiar link)
 - [x] Comentários via Giscus (GitHub Discussions)
-- [x] CTA de newsletter com formulário (client component)
-- [x] Artigos relacionados no final de cada post
+- [x] Newsletter salva emails em `/data/newsletter.json`
+- [x] Artigos relacionados
+
+### Leitor Bíblico (`/biblia`)
+- [x] 31.105 versículos indexados (Almeida Corrigida Fiel)
+- [x] Busca por referência exata (`João 3:16`) ou palavra-chave (`amor graça`)
+- [x] Suporte a abreviações (`Jo 3:16`, `Sl 23`)
+- [x] Navegação por livro (dropdown com 66 livros) e capítulo (prev/next)
+- [x] Versículo destacado ao buscar
+- [x] Scroll automático até o versículo
+- [x] Botão de copiar versículo (hover)
+- [x] Índice JSON estático (6 MB, carregado no browser)
+
+### Código
+- [x] Componentes órfãos removidos (ProjectCard, WhatsAppButton, CopyLinkButton)
+- [x] `CATEGORY_COLORS` extraído para `src/lib/constants.ts` (DRY)
+- [x] `.env.example` criado
+- [x] `start-dev.sh` com caminho genérico (`$SCRIPT_DIR`)
+- [x] `tsconfig.json` exclui `scripts/` do build
+- [x] Lint: 0 erros, 2 warnings (apenas `<img>` — otimizável com `next/image`)
 
 ---
 
-## 9. Pendências e Melhorias Futuras
+## 10. Scripts de Manutenção
 
-### Correções urgentes
-
-| # | Item | Prioridade |
-|---|------|:---:|
-| 1 | **Newsletter funcional** — endpoint `/api/newsletter` é um stub, retorna sempre `success: true`. Conectar a Mailchimp, ConvertKit ou ao menos salvar em arquivo JSON | 🔴 |
-| 2 | **`.env.example`** — criar arquivo documentando as variáveis de ambiente obrigatórias | 🔴 |
-| 3 | **Remover componentes órfãos** — `ProjectCard.tsx`, `WhatsAppButton.tsx`, `CopyLinkButton.tsx` não são importados em lugar nenhum | 🔴 |
-| 4 | **Extrair `CATEGORY_COLORS`** — código duplicado em `blog/page.tsx`, `blog/[slug]/page.tsx` e `ArticleCard.tsx`. Mover para `lib/constants.ts` | 🔴 |
-| 5 | **Corrigir bug `getColor(tag.name)`** — na sidebar do blog, `getColor()` recebe nome de tag em vez de slug de categoria, sempre cai no fallback `geral` | 🟡 |
-| 6 | **Corrigir `start-dev.sh`** — contém caminho absoluto de outra máquina (`/home/ewerton/meu-site`) | 🟡 |
-
-### Melhorias de segurança e performance
-
-| # | Item | Prioridade |
-|---|------|:---:|
-| 7 | **Rate limiting** — formulário de contato e newsletter sem proteção contra spam | 🟡 |
-| 8 | **Imagens otimizadas** — usar `next/image` com `remotePatterns` para Unsplash | 🟡 |
-| 9 | **Honeypot/Captcha** — campo invisível no formulário para bots | 🟢 |
-| 10 | **CSP headers** — Content Security Policy para scripts inline | 🟢 |
-
-### Funcionalidades novas
-
-| # | Item | Prioridade |
-|---|------|:---:|
-| 11 | **Paginação no blog** — necessário quando houver >12 artigos | 🟡 |
-| 12 | **Busca full-text** — fuse.js ou busca server-side | 🟡 |
-| 13 | **RSS Feed** — `/feed.xml` para leitores | 🟢 |
-| 14 | **Tabela de conteúdo (ToC)** — auto-gerada dos headings do artigo | 🟢 |
-| 15 | **Open Graph images dinâmicas** — `@vercel/og` por artigo | 🟢 |
-| 16 | **Séries de artigos** — agrupar posts relacionados | 🟢 |
-| 17 | **Loja real** — integrar catálogo com links de afiliado | 🟢 |
-| 18 | **Internacionalização** — `next-intl` para pt-BR, en, es | 🟢 |
-
-### DevOps
-
-| # | Item | Prioridade |
-|---|------|:---:|
-| 19 | **CI/CD** — GitHub Actions para lint + build a cada PR | 🟢 |
-| 20 | **Pre-commit hooks** — Husky + lint-staged | 🟢 |
-| 21 | **Analytics** — Plausible ou Vercel Analytics | 🟢 |
-
-### Integração com outros repositórios
-
-| # | Item | Prioridade |
-|---|------|:---:|
-| 22 | **Artigos Luz Bíblia** — converter artigos acadêmicos (.docx) para Markdown e publicar no blog | 🟢 |
-| 23 | **Bíblia ACF** — integrar `biblia_completa.txt` como API de busca de versículos | 🟢 |
-
----
-
-## 10. Build e Deploy
+### Gerar índice da Bíblia
 
 ```bash
-npm run build
+npx tsx scripts/parse-biblia.ts \
+  /caminho/para/biblia_completa.txt \
+  public/biblia-index.json
 ```
 
-O build gera todas as páginas como HTML estático. Exemplo de saída:
+### Extrair artigos .docx → .md
+
+```bash
+python3 scripts/extrair_artigos.py
+```
+
+Configurar caminhos no final do script (`artigos_dir`, `output_dir`).
+
+### Buscar imagens no Unsplash
+
+```bash
+UNSPLASH_KEY="sua-key"
+curl -H "Authorization: Client-ID $UNSPLASH_KEY" \
+  "https://api.unsplash.com/search/photos?query=PASTORA&per_page=5"
+```
+
+---
+
+## 11. Build e Deploy
+
+```bash
+npm run build   # 28 páginas estáticas, ~16s
+```
 
 ```
 Route (app)
 ┌ ○ /                          # Static
-├ ○ /_not-found                # Static
-├ ƒ /api/newsletter             # Dynamic (stub)
-├ ○ /blog                      # Static
-├ ● /blog/[slug]               # SSG (6 artigos)
-├ ○ /categorias                # Static
+├ ○ /_not-found
+├ ƒ /api/newsletter             # Dynamic (salva JSON)
+├ ○ /biblia                    # Static (leitor bíblico)
+├ ○ /blog
+├ ● /blog/[slug]               # SSG (11 artigos)
+├ ○ /categorias
 ├ ● /categorias/[slug]         # SSG (4 categorias)
-├ ○ /contato                   # Static
-├ ○ /loja                      # Static
-├ ○ /robots.txt                # Static
-├ ○ /sitemap.xml               # Static
-└ ○ /sobre                     # Static
+├ ○ /contato
+├ ○ /loja
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ○ /sobre
 ```
 
 ### Deploy na Vercel
 
-1. Conecte o repositório `Uchoavf/Graca-e-Verdade-Site` à Vercel
-2. A Vercel detecta Next.js automaticamente
-3. Configure as variáveis de ambiente (`EMAIL_*`)
-4. Deploy automático a cada push na branch main
+Conectado ao GitHub. Deploy automático a cada push na main.
+Variáveis de ambiente: configurar `EMAIL_*` no dashboard da Vercel.
 
 ---
 
-## 11. Decisões Técnicas
+## 12. Pendências
 
-- **SSG puro**: Todas as páginas são pré-geradas no build. Zero banco de dados. Custo zero.
-- **Markdown como CMS**: Arquivos `.md` versionados com Git, sem dependência de CMS headless.
-- **`'use client'` mínimo**: Apenas componentes interativos usam renderização no cliente.
-- **Sem `tailwind.config.js`**: Tailwind v4 usa `@theme inline` no CSS.
-- **Server Actions**: Formulário de contato usa `useActionState` — sem API route adicional.
+| # | Item | Prioridade |
+|---|------|:---:|
+| 1 | `next/image` para otimização de imagens (remotePatterns) | 🟡 |
+| 2 | Paginação no blog (>12 artigos) | 🟡 |
+| 3 | RSS Feed | 🟢 |
+| 4 | Tabela de conteúdo (ToC) nos artigos | 🟢 |
+| 5 | Open Graph images dinâmicas (`@vercel/og`) | 🟢 |
+| 6 | Loja real com links de afiliado | 🟢 |
+| 7 | Busca full-text nos artigos | 🟢 |
+| 8 | CI/CD com GitHub Actions | 🟢 |
+| 9 | Analytics (Plausible ou Vercel) | 🟢 |
+| 10 | Internacionalização | 🟢 |
 
 ---
 
-## 12. Autoria
+## 13. Autoria
 
 ### Dados removidos (25/06/2026)
 
-Os seguintes dados pessoais foram removidos dos artigos e serão reinseridos futuramente
-com informações atualizadas:
+Os seguintes dados pessoais foram removidos e devem ser reinseridos com informações atualizadas:
 
 - Nome completo (Ewerton Uchôa Vieira Fiel)
-- Emails pessoais (ewertonuvf@gmail.com, ewertonuchoa@gmail.com)
-- Email institucional (ewerton.vieira@ibadem.edu.br)
+- Emails pessoais e institucional
 - Credenciais acadêmicas (UFPA, IBADEM, UFRA, Uniasselvi)
 - Vínculos profissionais (UFRA, TRF1)
 - Cidade (Ananindeua-PA)
 - Cargo eclesiástico (Diácono, Ministério Arca da Aliança)
 - Links Lattes e ORCID
 
-### O que manter anônimo permanentemente
+### Permanentemente anônimo
 
-- Senhas e tokens (`.env` — nunca versionado)
+- Senhas e tokens (`.env` — gitignored)
 - Lista de emails da newsletter (`/data/` — gitignored)
 
-### Quando atualizar
+### Roteiro para reinserir dados
 
-Antes de republicar os dados do autor:
-1. Verificar se credenciais acadêmicas e profissionais estão atualizadas
-2. Confirmar emails ativos
-3. Atualizar links Lattes/ORCID com as URLs completas
-4. Revisar o texto da bio do autor em cada artigo
+1. Criar um arquivo de bio atualizado
+2. Adicionar ao frontmatter de cada artigo ou ao final do corpo
+3. Atualizar página `/sobre` com informações do autor
+4. Adicionar links Lattes/ORCID com URLs completas
 
 ---
 
-## 13. Repositórios Relacionados
+## 14. Repositórios Relacionados
 
 | Repositório | Descrição |
 |-------------|-----------|
-| `Uchoavf/Artigos-luz-biblia` | Artigos acadêmicos ABNT (Python + .docx) — futura integração |
+| `Uchoavf/Artigos-luz-biblia` | Artigos acadêmicos ABNT — 5 já convertidos para o blog |
 | `Uchoavf/jogo-da-velha` | Jogo da Velha com IA (Python + Tkinter) |
-| `Uchoavf/calculadora-gordura-corporal` | Calculadora de gordura corporal |
+| `Uchoavf/calculadora-gordura-corporal` | Calculadora US Navy |
 | `Uchoavf/escala-ufra` | Planilha de escala de trabalho |
 | `Uchoavf/temporizador-lavanderia` | Temporizador para lavanderia |
 | `Uchoavf/Radoc.app` | App RADOC (private) |
 | `Uchoavf/Radocpro.site` | Serviço RADOC PRO |
+
+---
+
+## 15. Changelog
+
+| Data | Mudanças |
+|------|----------|
+| 25/06 | Leitor bíblico com busca e navegação (66 livros, 31k versículos) |
+| 25/06 | 5 artigos convertidos de `.docx` → `.md` (Artigos-luz-biblia) |
+| 25/06 | Imagens Unsplash temáticas em todos os 11 artigos |
+| 25/06 | Rate limiting, honeypot, security headers |
+| 25/06 | Newsletter salva emails em JSON |
+| 25/06 | Design responsivo para mobile/tablet/desktop |
+| 25/06 | Limpeza de código (componentes órfãos, DRY, .env.example) |
+| 25/06 | Dados pessoais removidos dos artigos |
+| 25/06 | Deploy na Vercel (https://graca-e-verdade.vercel.app) |
 
 ---
 
