@@ -44,6 +44,7 @@ export default function Header() {
             { href: '/blog', label: 'Artigos' },
             { href: '/categorias', label: 'Categorias' },
             { href: '/biblia', label: 'Bíblia' },
+            { href: '/aconselhamento', label: 'Aconselhamento' },
             { href: '/sobre', label: 'Sobre' },
           ].map(({ href, label }) => (
             <Link
