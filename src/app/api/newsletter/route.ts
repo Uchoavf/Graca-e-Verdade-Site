@@ -1,36 +1,31 @@
 import { NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
-import fs from "fs";
-import path from "path";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const STORAGE_PATH = path.join(process.cwd(), "data", "newsletter.json");
+const IS_LOCAL = process.env.NODE_ENV === "development" || process.env.VERCEL_ENV !== "production";
 
-function getSubscribers(): { emails: string[]; subscribedAt: Record<string, string> } {
+async function saveSubscriberDev(email: string): Promise<boolean> {
+  if (!IS_LOCAL) return false;
   try {
-    if (!fs.existsSync(STORAGE_PATH)) {
-      return { emails: [], subscribedAt: {} };
+    const fs = await import("fs");
+    const path = await import("path");
+    const STORAGE_PATH = path.default.join(process.cwd(), "data", "newsletter.json");
+    const dir = path.default.dirname(STORAGE_PATH);
+    if (!fs.default.existsSync(dir)) fs.default.mkdirSync(dir, { recursive: true });
+    let data: { emails: string[]; subscribedAt: Record<string, string> } = { emails: [], subscribedAt: {} };
+    if (fs.default.existsSync(STORAGE_PATH)) {
+      data = JSON.parse(fs.default.readFileSync(STORAGE_PATH, "utf-8"));
     }
-    const raw = fs.readFileSync(STORAGE_PATH, "utf-8");
-    return JSON.parse(raw);
+    if (data.emails.includes(email)) return false;
+    data.emails.push(email);
+    data.subscribedAt[email] = new Date().toISOString();
+    const tmp = STORAGE_PATH + ".tmp";
+    fs.default.writeFileSync(tmp, JSON.stringify(data, null, 2));
+    fs.default.renameSync(tmp, STORAGE_PATH);
+    return true;
   } catch {
-    return { emails: [], subscribedAt: {} };
+    return false;
   }
-}
-
-function saveSubscriber(email: string) {
-  const dir = path.dirname(STORAGE_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  const data = getSubscribers();
-  if (data.emails.includes(email)) return false;
-  data.emails.push(email);
-  data.subscribedAt[email] = new Date().toISOString();
-  const tmp = STORAGE_PATH + '.tmp';
-  fs.writeFileSync(tmp, JSON.stringify(data, null, 2));
-  fs.renameSync(tmp, STORAGE_PATH);
-  return true;
 }
 
 export async function POST(request: Request) {
@@ -58,21 +53,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email inválido." }, { status: 400 });
     }
 
-    if (email.length > 320) {
+    if (email.length > 254) {
       return NextResponse.json({ error: "Email muito longo." }, { status: 400 });
     }
 
-    const isNew = saveSubscriber(email.toLowerCase().trim());
+    const isNew = await saveSubscriberDev(email.toLowerCase().trim());
 
     return NextResponse.json({
       success: true,
       message: isNew
-        ? "Inscrição realizada com sucesso! Verifique seu e-mail."
-        : "Você já está inscrito na nossa newsletter.",
+        ? "Inscrição realizada! Em breve você receberá nossos artigos."
+        : "Você já está inscrito. Em breve enviaremos novidades!",
     });
   } catch {
     return NextResponse.json(
-      { error: "Erro ao processar inscrição." },
+      { error: "Erro ao processar inscrição. Tente novamente mais tarde." },
       { status: 500 }
     );
   }
