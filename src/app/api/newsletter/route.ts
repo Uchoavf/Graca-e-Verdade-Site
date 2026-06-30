@@ -27,14 +27,17 @@ function saveSubscriber(email: string) {
   if (data.emails.includes(email)) return false;
   data.emails.push(email);
   data.subscribedAt[email] = new Date().toISOString();
-  fs.writeFileSync(STORAGE_PATH, JSON.stringify(data, null, 2));
+  const tmp = STORAGE_PATH + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(data, null, 2));
+  fs.renameSync(tmp, STORAGE_PATH);
   return true;
 }
 
 export async function POST(request: Request) {
   try {
     const forwarded = request.headers.get("x-forwarded-for");
-    const ip = forwarded?.split(",")[0]?.trim() ?? "unknown";
+    const rawIp = forwarded?.split(",")[0]?.trim();
+    const ip = rawIp && /^[\d.]+$/.test(rawIp) ? rawIp : "unknown";
     const rateCheck = checkRateLimit(`newsletter:${ip}`);
 
     if (!rateCheck.allowed) {

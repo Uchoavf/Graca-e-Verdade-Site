@@ -123,6 +123,10 @@ export async function getAllTags(): Promise<
 }
 
 export async function getPostBySlug(slug: string) {
+  if (!/^[a-z0-9\-áàâãéêíóôõúç]+$/.test(slug) || slug.includes('..')) {
+    return null
+  }
+
   const fullPath = path.join(postsDirectory, `${slug}.md`)
 
   if (!fs.existsSync(fullPath)) return null

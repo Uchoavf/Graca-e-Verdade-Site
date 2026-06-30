@@ -9,6 +9,15 @@ type FormState = {
   error?: string
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 export async function enviarContato(prevState: FormState | null, formData: FormData): Promise<FormState> {
   const honeypot = formData.get('website')?.toString() ?? ''
   if (honeypot) {
@@ -38,7 +47,8 @@ export async function enviarContato(prevState: FormState | null, formData: FormD
 
   const headersList = await headers()
   const forwarded = headersList.get('x-forwarded-for')
-  const ip = forwarded?.split(',')[0]?.trim() ?? 'unknown'
+  const rawIp = forwarded?.split(',')[0]?.trim()
+  const ip = rawIp && /^[\d.]+$/.test(rawIp) ? rawIp : 'unknown'
   const rateCheck = checkEmailRateLimit(`contato:${ip}`)
 
   if (!rateCheck.allowed) {
@@ -50,6 +60,9 @@ export async function enviarContato(prevState: FormState | null, formData: FormD
       host: process.env.EMAIL_HOST || 'smtp.gmail.com',
       port: Number(process.env.EMAIL_PORT) || 587,
       secure: false,
+      requireTLS: true,
+      disableFileAccess: true,
+      disableUrlAccess: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -60,15 +73,15 @@ export async function enviarContato(prevState: FormState | null, formData: FormD
       from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email,
-      subject: `Contato do site — ${nome}`,
+      subject: `Contato do site — ${escapeHtml(nome)}`,
       text: `Nome: ${nome}\nEmail: ${email}\n\nMensagem:\n${mensagem}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #059669;">Novo contato pelo site</h2>
-          <p><strong>Nome:</strong> ${nome}</p>
-          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Nome:</strong> ${escapeHtml(nome)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <hr />
-          <p style="white-space: pre-wrap;">${mensagem}</p>
+          <p style="white-space: pre-wrap;">${escapeHtml(mensagem)}</p>
         </div>
       `,
     })
