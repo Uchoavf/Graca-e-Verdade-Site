@@ -56,6 +56,13 @@ export default function Header() {
             </Link>
           ))}
           <Link
+            href="/apoie"
+            className="rounded-lg px-4 py-3 md:py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors min-h-[44px] md:min-h-0 flex items-center"
+            onClick={() => setMenuOpen(false)}
+          >
+            Apoie
+          </Link>
+          <Link
             href="/loja"
             className="rounded-full bg-accent px-5 py-3 md:py-2.5 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-all shadow-sm min-h-[44px] md:min-h-0 flex items-center justify-center"
             onClick={() => setMenuOpen(false)}
