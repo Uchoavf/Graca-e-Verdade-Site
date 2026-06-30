@@ -11,7 +11,7 @@ tags:
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/trigo-colheita/1200/630"
+image: "https://images.unsplash.com/photo-1529511582893-2d7e684dd128?w=1200&h=630&fit=crop&q=80"
 ---
 
 O arcabouço econômico veterotestamentário repousa sobre um fundamento teológico radical: Deus é o proprietário absoluto de toda a criação. A terra, os recursos naturais, o poder de gerar riqueza — tudo pertence ao Senhor (Lv 25:23; Dt 8:17-18; Sl 24:1). Os seres humanos, por sua vez, são mordomos, administradores temporários daquilo que pertence a outrem. Esta premissa subverte toda concepção de direito absoluto de propriedade e estabelece uma economia de dádiva e responsabilidade, na qual a acumulação ilimitada e a pobreza perene são igualmente incompatíveis com o desígnio divino para a comunidade da aliança. O sistema do Ano Sabático e do Ano do Jubileu (Lv 25), a remissão septenal de dívidas (Dt 15), as leis de respigadura (Lv 19:9-10; Dt 24:19-22), a proibição da usura entre irmãos (Ex 22:25; Lv 25:35-38) e o cuidado institucionalizado com os vulneráveis constituem engrenagens de um mesmo mecanismo divinamente ordenado para prevenir a desigualdade estrutural e restaurar periodicamente a equidade econômica no seio do povo de Deus.

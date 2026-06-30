@@ -11,7 +11,7 @@ tags:
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/pao-peixe/1200/630"
+image: "https://images.unsplash.com/photo-1521471109507-43d61bb345dd?w=1200&h=630&fit=crop&q=80"
 ---
 
 O Novo Testamento não se apresenta como um tratado sistemático de economia, mas é impossível lê-lo com atenção sem perceber que os temas econômicos o permeiam do início ao fim. Jesus Cristo falou mais sobre dinheiro, riqueza e pobreza do que sobre o céu e o inferno combinados: aproximadamente uma em cada seis palavras registradas nos Evangelhos trata desses assuntos. Das trinta e nove parábolas narradas por Jesus, onze abordam diretamente questões econômicas — a administração de bens, a recompensa pelo trabalho, a relação entre riqueza e salvação. O dinheiro, longe de ser um tema secundário, ocupa o centro do ensino ético do Mestre.

@@ -6,7 +6,7 @@ tags: ["bíblia", "estudo", "método", "princípios"]
 category: "estudo-biblico"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/biblia-estudo/1200/630"
+image: "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56?w=1200&h=630&fit=crop&q=80"
 ---
 
 ## Por Que Estudar a Bíblia?

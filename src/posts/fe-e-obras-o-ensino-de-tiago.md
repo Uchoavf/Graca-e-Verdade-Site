@@ -6,7 +6,7 @@ tags: ["fé", "obras", "tiago", "paulo", "justificação"]
 category: "teologia"
 author: "Graça & Verdade"
 featured: false
-image: "https://picsum.photos/seed/fe-obras/1200/630"
+image: "https://images.unsplash.com/photo-1586726370832-3440a511e479?w=1200&h=630&fit=crop&q=80"
 ---
 
 ## Uma Questão Antiga

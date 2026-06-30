@@ -12,7 +12,7 @@ tags:
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/casamento/1200/630"
+image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&h=630&fit=crop&q=80"
 ---
 
 **Resumo**

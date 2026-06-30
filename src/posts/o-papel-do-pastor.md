@@ -11,7 +11,7 @@ tags:
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/pastor-ovelhas/1200/630"
+image: "https://images.unsplash.com/photo-1423766111988-c47a5ff6ed06?w=1200&h=630&fit=crop&q=80"
 ---
 
 **Resumo**

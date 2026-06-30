@@ -6,7 +6,7 @@ tags: ["graça", "salvação", "cristo"]
 category: "teologia"
 author: "Graça & Verdade"
 featured: true
-image: "https://picsum.photos/seed/graca/1200/630"
+image: "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?w=1200&h=630&fit=crop&q=80"
 ---
 
 ## Introdução
