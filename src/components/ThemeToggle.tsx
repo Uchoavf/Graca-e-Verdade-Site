@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 function getInitialDark(): boolean {
   if (typeof window === 'undefined') return false;
   const stored = localStorage.getItem('theme');
-  const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-  return stored === 'dark' || (!stored && prefersDark);
+  if (stored === 'light') return false;
+  if (stored === 'dark') return true;
+  return matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 export default function ThemeToggle() {
@@ -14,11 +15,12 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const root = document.documentElement;
+    root.classList.remove('dark', 'light');
     if (dark) {
       root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      root.classList.remove('dark');
+      root.classList.add('light');
       localStorage.setItem('theme', 'light');
     }
   }, [dark]);

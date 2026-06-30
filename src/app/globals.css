@@ -98,6 +98,23 @@ html.dark {
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.30);
 }
 
+html.light {
+  --background: #f9f6ee;
+  --foreground: #3b2a1f;
+  --muted: #f3efe5;
+  --muted-foreground: #6a5b4d;
+  --accent: #ca8a2e;
+  --accent-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #3b2a1f;
+  --border: rgba(95, 78, 65, 0.10);
+  --border-hover: rgba(95, 78, 65, 0.18);
+  --ring: rgba(202, 138, 46, 0.40);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -288,6 +305,17 @@ html.dark .prose pre code {
 }
 html.dark .prose strong {
   color: #f0ede8;
+}
+
+html.light .prose p {
+  color: #6a5b4d;
+}
+html.light .prose code {
+  background: #f3efe5;
+  color: #4d3f33;
+}
+html.light .prose strong {
+  color: #3b2a1f;
 }
 
 @layer utilities {
