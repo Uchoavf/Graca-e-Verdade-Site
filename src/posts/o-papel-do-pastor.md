@@ -1,7 +1,7 @@
 ---
 title: "As Funções e o Papel do Pastor nos Dias de Hoje"
 date: "2026-06-25"
-description: "Este artigo examina as funções e o papel do pastor cristão na contemporaneidade, fundamentado exclusivamente nas Escrituras Sagradas, tendo por base a versão Almeida Corrigida Fiel (ACF). A partir do modelo de Jesus Cristo como o Bom Pastor (João 10)"
+description: "Este artigo examina as funções e o papel do pastor cristão na contemporaneidade, fundamentado exclusivamente nas Escrituras Sagradas. A partir do modelo de Jesus Cristo como o Bom Pastor, analisa as qualificações bíblicas e os desafios do ministério pastoral."
 tags:
   - "pastorado"
   - "liderança cristã"

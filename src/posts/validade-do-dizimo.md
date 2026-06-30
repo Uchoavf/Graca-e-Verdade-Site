@@ -1,7 +1,7 @@
 ---
 title: "A Validade do Dízimo na Igreja Contemporânea"
 date: "2026-06-29"
-description: "Este artigo examina a validade e o percentual do dizimo na igreja contemporanea com base exclusiva nas Escrituras Sagradas (versao Almeida Corrigida Fiel). A pesquisa percorre o desenvolvimento historico-biblico do dizimo: sua pratica antes da Lei (A"
+description: "Este artigo examina a validade e o percentual do dízimo na igreja contemporânea com base exclusiva nas Escrituras Sagradas. A pesquisa percorre o desenvolvimento histórico-bíblico do dízimo desde sua prática antes da Lei até sua aplicação nos dias atuais."
 tags:
   - "dizimo"
   - "ofertas"

@@ -1,7 +1,7 @@
 ---
 title: "O Chamado Pastoral e a Ordenação de Mulheres ao Ministério"
 date: "2026-06-29"
-description: "Este artigo examina, com base exclusiva nas Escrituras Sagradas, a controversa questão da ordenação de mulheres ao ofício pastoral. Apresenta de forma sistemática os argumentos contrários e favoráveis, uma síntese hermenêutica, e uma conclusão av"
+description: "Este artigo examina, com base exclusiva nas Escrituras Sagradas, a controversa questão da ordenação de mulheres ao ofício pastoral. Apresenta de forma sistemática os argumentos contrários e favoráveis, uma síntese hermenêutica e uma conclusão avaliativa fundamentada na Bíblia."
 tags:
   - "pastorado feminino"
   - "ordenacao de mulheres"
