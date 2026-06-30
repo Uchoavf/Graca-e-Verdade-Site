@@ -204,6 +204,10 @@ export default async function Post({
         )}
       </header>
 
+      <div className="mb-8 rounded-xl border border-border bg-muted/30 p-4">
+        <ShareButtons title={post.title} slug={post.slug} />
+      </div>
+
       <div
         className="prose mb-20 animate-fade-in"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
