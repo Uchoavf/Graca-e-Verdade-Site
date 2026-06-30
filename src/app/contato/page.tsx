@@ -97,27 +97,6 @@ export default function Contato() {
               Preencha o formulário ao lado para entrar em contato.
             </p>
           </div>
-          <div>
-            <h2 className="mb-2 text-lg font-semibold text-foreground font-serif">Redes Sociais</h2>
-            <div className="flex flex-col gap-2">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                YouTube
-              </a>
-            </div>
-          </div>
           <div className="rounded-2xl border border-border bg-muted/30 p-6">
             <blockquote className="text-sm italic text-muted-foreground leading-relaxed">
               &quot;Ora, àquele que é poderoso para fazer infinitamente mais do que tudo quanto pedimos ou pensamos, conforme o seu poder que opera em nós, a ele seja a glória.&quot;

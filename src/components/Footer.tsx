@@ -48,12 +48,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Graça &amp; Verdade. Todos os direitos reservados.
           </p>
           <div className="flex gap-5">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              Instagram
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              YouTube
-            </a>
             <Link href="/contato" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Contato
             </Link>
